@@ -3,240 +3,350 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>beauty salon AURA - 渋谷の完全予約制美容室</title>
+  <title>AURA Beauty Salon | 渋谷道玄坂の美容室</title>
+  <meta name="description" content="渋谷・道玄坂の美容室AURA。UIUXデザインとAI技術で制作された最先端のサロンサイト。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- Header / Navigation -->
-  <header>
-    <div class="container">
-      <div class="header-inner">
-        <a href="#" class="logo">AURA</a>
-        <nav>
-          <ul>
-            <li><a href="#services">サービス</a></li>
-            <li><a href="#stylist">スタイリスト</a></li>
-            <li><a href="#reviews">口コミ</a></li>
-            <li><a href="#pricing">料金</a></li>
-            <li><a href="#access">アクセス</a></li>
-          </ul>
-        </nav>
-        <div class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
+
+<!-- ローディング画面 -->
+<div class="loader" id="loader">
+  <div class="loader-text">AURA</div>
+</div>
+
+<!-- ヘッダー -->
+<header id="header">
+  <div class="header-inner container">
+    <a href="#" class="logo">AURA</a>
+    <nav id="nav">
+      <ul>
+        <li><a href="#concept">CONCEPT</a></li>
+        <li><a href="#services">SERVICES</a></li>
+        <li><a href="#gallery">GALLERY</a></li>
+        <li><a href="#team">TEAM</a></li>
+        <li><a href="#access">ACCESS</a></li>
+        <li><a href="#reservation" class="nav-btn">RESERVE</a></li>
+      </ul>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1920&q=90" alt="美容室" class="hero-img">
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <p class="hero-sub fade-up">beauty salon</p>
+    <h1 class="hero-title fade-up delay-1">
+      <em>あなたらしさを</em><br>
+      <em>引き出す美容室</em>
+    </h1>
+    <p class="hero-body fade-up delay-2">渋谷・道玄坂 | 完全予約制 | 丁寧なカウンセリング</p>
+    <a href="#reservation" class="hero-btn fade-up delay-3">ご予約はこちら</a>
+  </div>
+  <div class="scroll-hint">
+    <span class="scroll-text">SCROLL</span>
+    <span class="scroll-line"></span>
+  </div>
+</section>
+
+<!-- コンセプト -->
+<section class="concept" id="concept">
+  <div class="concept-grid container">
+    <div class="concept-img reveal-left">
+      <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=85" alt="サロン内観">
+    </div>
+    <div class="concept-text reveal-right">
+      <p class="label">OUR CONCEPT</p>
+      <h2>一人ひとりの<br><em>「らしさ」</em>と向き合う</h2>
+      <p class="body-text">AURAは、お客様一人ひとりの個性・ライフスタイル・なりたいイメージを丁寧にヒアリングし、最高の状態を引き出すことにこだわっています。</p>
+      <p class="body-text">ヘアスタイルは「なんとなく気分が上がる」だけでなく、自信と活力を生み出すもの。そんな体験をお届けします。</p>
+    </div>
+  </div>
+</section>
+
+<!-- サービス -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="label">SERVICES</p>
+      <h2>サービス一覧</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal" style="--delay:0s">
+        <div class="service-img-wrap">
+          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80" alt="カット">
+          <div class="service-overlay">
+            <p class="service-detail">経験豊富なスタイリストが丁寧にカウンセリングし、骨格・髪質に合ったカットを提案します。</p>
+          </div>
         </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>あなたらしさを引き出す美容室</h1>
-      <p>渋谷・道玄坂 | 完全予約制 | 丁寧なカウンセリング</p>
-      <a href="https://line.me/R/ti/p/%40example" class="btn-primary">LINEで予約する</a>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services" class="services-section">
-    <div class="container">
-      <h2 class="section-title">サービス一覧</h2>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">✂️</div>
+        <div class="service-info">
           <h3>カット</h3>
-          <div class="service-price">3,500円</div>
-          <div class="service-time">約40分</div>
-          <p class="service-desc">経験豊富なスタイリストが丁寧にカウンセリング</p>
+          <p class="service-price">¥3,500〜</p>
+          <p class="service-time">約40分</p>
         </div>
-
-        <div class="service-card">
-          <div class="service-icon">🎨</div>
+      </div>
+      <div class="service-card reveal" style="--delay:0.1s">
+        <div class="service-img-wrap">
+          <img src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?w=600&q=80" alt="カラー">
+          <div class="service-overlay">
+            <p class="service-detail">トレンドカラーからナチュラルまで。髪のダメージを最小限に、発色にこだわります。</p>
+          </div>
+        </div>
+        <div class="service-info">
           <h3>カラー</h3>
-          <div class="service-price">5,000〜8,000円</div>
-          <div class="service-time">約90分</div>
-          <p class="service-desc">トレンドカラーからナチュラルまで幅広く対応</p>
+          <p class="service-price">¥5,000〜8,000</p>
+          <p class="service-time">約90分</p>
         </div>
-
-        <div class="service-card">
-          <div class="service-icon">💫</div>
+      </div>
+      <div class="service-card reveal" style="--delay:0.2s">
+        <div class="service-img-wrap">
+          <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=600&q=80" alt="パーマ">
+          <div class="service-overlay">
+            <p class="service-detail">ライフスタイルに合ったウェーブやカールを提案。毎朝のスタイリングが楽になります。</p>
+          </div>
+        </div>
+        <div class="service-info">
           <h3>パーマ</h3>
-          <div class="service-price">6,000〜10,000円</div>
-          <div class="service-time">約120分</div>
-          <p class="service-desc">あなたのライフスタイルに合ったスタイルを提案</p>
+          <p class="service-price">¥6,000〜10,000</p>
+          <p class="service-time">約120分</p>
         </div>
-
-        <div class="service-card">
-          <div class="service-icon">✨</div>
+      </div>
+      <div class="service-card reveal" style="--delay:0.3s">
+        <div class="service-img-wrap">
+          <img src="https://images.unsplash.com/photo-1556228841-a3c527ebefe5?w=600&q=80" alt="トリートメント">
+          <div class="service-overlay">
+            <p class="service-detail">サロン品質のトリートメントで、芯から潤う髪へ。ダメージ改善・ツヤ感アップ。</p>
+          </div>
+        </div>
+        <div class="service-info">
           <h3>トリートメント</h3>
-          <div class="service-price">2,000〜5,000円</div>
-          <div class="service-time">約30分</div>
-          <p class="service-desc">サロン品質のケアで潤い髪を取り戻す</p>
+          <p class="service-price">¥2,000〜5,000</p>
+          <p class="service-time">約30分</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Stylist Section -->
-  <section id="stylist" class="stylist-section">
-    <div class="container">
-      <h2 class="section-title">スタイリスト紹介</h2>
-      <div class="stylists">
-        <div class="stylist-card">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop" alt="田中太郎" class="stylist-img">
-          <div class="stylist-name">田中 太郎</div>
-          <div class="stylist-name-en">Taro Tanaka</div>
-          <div class="stylist-exp">経験 10年</div>
-          <div class="stylist-spec">カラー・トレンド専門</div>
-          <p class="stylist-msg">「トレンドを取り入れながら、あなたらしさを大切にしたスタイルを提案します」</p>
+<!-- ギャラリー -->
+<section class="gallery" id="gallery">
+  <div class="section-header reveal container">
+    <p class="label">GALLERY</p>
+    <h2>スタイル事例</h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item tall reveal">
+      <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=85" alt="スタイル1">
+      <div class="gallery-hover"><span>STYLE 01</span></div>
+    </div>
+    <div class="gallery-item reveal" style="--delay:0.1s">
+      <img src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?w=600&q=85" alt="スタイル2">
+      <div class="gallery-hover"><span>STYLE 02</span></div>
+    </div>
+    <div class="gallery-item reveal" style="--delay:0.2s">
+      <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=600&q=85" alt="スタイル3">
+      <div class="gallery-hover"><span>STYLE 03</span></div>
+    </div>
+    <div class="gallery-item tall reveal" style="--delay:0.1s">
+      <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=85" alt="スタイル4">
+      <div class="gallery-hover"><span>STYLE 04</span></div>
+    </div>
+    <div class="gallery-item reveal" style="--delay:0.3s">
+      <img src="https://images.unsplash.com/photo-1556228841-a3c527ebefe5?w=600&q=85" alt="スタイル5">
+      <div class="gallery-hover"><span>STYLE 05</span></div>
+    </div>
+    <div class="gallery-item reveal" style="--delay:0.4s">
+      <img src="https://images.unsplash.com/photo-1559599101-f09722fb4948?w=600&q=85" alt="スタイル6">
+      <div class="gallery-hover"><span>STYLE 06</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- チーム -->
+<section class="team" id="team">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="label">OUR TEAM</p>
+      <h2>スタイリスト紹介</h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-img-wrap">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="田中太郎">
         </div>
-
-        <div class="stylist-card">
-          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop" alt="鈴木花子" class="stylist-img">
-          <div class="stylist-name">鈴木 花子</div>
-          <div class="stylist-name-en">Hanako Suzuki</div>
-          <div class="stylist-exp">経験 8年</div>
-          <div class="stylist-spec">パーマ・ヘアケア専門</div>
-          <p class="stylist-msg">「毎日のお手入れが簡単になるスタイルと、髪の健康を第一に考えています」</p>
+        <div class="team-info">
+          <p class="team-role">HAIR DIRECTOR</p>
+          <h3>田中 太郎</h3>
+          <p class="team-exp">経験 10年</p>
+          <p class="team-spec">カラー・トレンドスタイル</p>
+          <p class="team-msg">「お客様の笑顔がいちばんのモチベーションです。一緒に理想のスタイルを作りましょう。」</p>
         </div>
-
-        <div class="stylist-card">
-          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop" alt="伊藤美咲" class="stylist-img">
-          <div class="stylist-name">伊藤 美咲</div>
-          <div class="stylist-name-en">Misaki Ito</div>
-          <div class="stylist-exp">経験 5年</div>
-          <div class="stylist-spec">キッズ・カウンセリング専門</div>
-          <p class="stylist-msg">「どんなお客様にも安心していただけるような丁寧なカウンセリングを心がけています」</p>
+      </div>
+      <div class="team-card reveal" style="--delay:0.15s">
+        <div class="team-img-wrap">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80" alt="鈴木花子">
+        </div>
+        <div class="team-info">
+          <p class="team-role">STYLIST</p>
+          <h3>鈴木 花子</h3>
+          <p class="team-exp">経験 8年</p>
+          <p class="team-spec">パーマ・ヘアケア</p>
+          <p class="team-msg">「毎日のお手入れが楽になるスタイルをご提案します。お気軽にご相談ください。」</p>
+        </div>
+      </div>
+      <div class="team-card reveal" style="--delay:0.3s">
+        <div class="team-img-wrap">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80" alt="伊藤美咲">
+        </div>
+        <div class="team-info">
+          <p class="team-role">STYLIST</p>
+          <h3>伊藤 美咲</h3>
+          <p class="team-exp">経験 5年</p>
+          <p class="team-spec">キッズ・カウンセリング</p>
+          <p class="team-msg">「お子様からご年配の方まで、笑顔になれるスタイルをお届けします。」</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Reviews Section -->
-  <section id="reviews" class="reviews-section">
-    <div class="container">
-      <h2 class="section-title">お客様の声</h2>
-      <div class="reviews-grid">
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">「丁寧なカウンセリングで理想の色にしてもらえました。トリートメントも仕上がりが全然違う！また来ます♪」</p>
-          <div class="reviewer-name">山田 さゆり様</div>
-          <div class="review-service">カラー & トリートメント</div>
+<!-- お客様の声 -->
+<section class="reviews">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="label">REVIEWS</p>
+      <h2>お客様の声</h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">「丁寧なカウンセリングで理想の色にしてもらえました。トリートメントも仕上がりが全然違う！次回も絶対またここで。」</p>
+        <div class="reviewer">
+          <p class="reviewer-name">山田 さゆり 様</p>
+          <p class="reviewer-service">カラー & トリートメント</p>
         </div>
-
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">「初めて来たのに希望をしっかり聞いてくれて、大満足の仕上がり。スタッフの方も感じよくて居心地が良かったです。」</p>
-          <div class="reviewer-name">佐藤 けんじ様</div>
-          <div class="review-service">カット</div>
+      </div>
+      <div class="review-card reveal" style="--delay:0.15s">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">「初めて来たのに希望をしっかり聞いてくれて、大満足の仕上がりでした。スタッフの方も感じよくて居心地が良かったです。」</p>
+        <div class="reviewer">
+          <p class="reviewer-name">佐藤 けんじ 様</p>
+          <p class="reviewer-service">カット</p>
         </div>
-
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">「自分の髪質を理解した上でスタイルを提案してもらえました。毎朝のセットが楽になって嬉しい！」</p>
-          <div class="reviewer-name">中村 はるか様</div>
-          <div class="review-service">パーマ</div>
+      </div>
+      <div class="review-card reveal" style="--delay:0.3s">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">「自分の髪質を理解した上でスタイルを提案してもらえました。毎朝のセットが楽になって本当に嬉しいです！」</p>
+        <div class="reviewer">
+          <p class="reviewer-name">中村 はるか 様</p>
+          <p class="reviewer-service">パーマ</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Pricing Section -->
-  <section id="pricing" class="pricing-section">
-    <div class="container">
-      <h2 class="section-title">料金表</h2>
+<!-- 料金表 -->
+<section class="pricing">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="label">PRICE LIST</p>
+      <h2>料金表</h2>
+    </div>
+    <div class="pricing-wrap reveal">
       <table class="pricing-table">
         <thead>
-          <tr>
-            <th>メニュー</th>
-            <th>料金</th>
-          </tr>
+          <tr><th>メニュー</th><th>料金</th></tr>
         </thead>
         <tbody>
-          <tr>
-            <td>カット</td>
-            <td>¥3,500〜</td>
-          </tr>
-          <tr>
-            <td>カラー（リタッチ）</td>
-            <td>¥5,000〜</td>
-          </tr>
-          <tr>
-            <td>カラー（フルカラー）</td>
-            <td>¥8,000〜</td>
-          </tr>
-          <tr>
-            <td>パーマ</td>
-            <td>¥6,000〜</td>
-          </tr>
-          <tr>
-            <td>ストレートパーマ</td>
-            <td>¥10,000〜</td>
-          </tr>
-          <tr>
-            <td>トリートメント</td>
-            <td>¥2,000〜</td>
-          </tr>
-          <tr>
-            <td>カット + カラー</td>
-            <td>¥10,000〜</td>
-          </tr>
-          <tr>
-            <td>カット + パーマ</td>
-            <td>¥12,000〜</td>
-          </tr>
+          <tr><td>カット</td><td>¥3,500〜</td></tr>
+          <tr><td>カラー（リタッチ）</td><td>¥5,000〜</td></tr>
+          <tr><td>カラー（フルカラー）</td><td>¥8,000〜</td></tr>
+          <tr><td>パーマ</td><td>¥6,000〜</td></tr>
+          <tr><td>ストレートパーマ</td><td>¥10,000〜</td></tr>
+          <tr><td>トリートメント</td><td>¥2,000〜</td></tr>
+          <tr class="highlight"><td>カット + カラー</td><td>¥10,000〜</td></tr>
+          <tr class="highlight"><td>カット + パーマ</td><td>¥12,000〜</td></tr>
         </tbody>
       </table>
-      <p class="pricing-note">※ご来店時にご確認ください。消費税込み。</p>
+      <p class="pricing-note">※料金は消費税込み。髪の長さ・状態によって異なります。ご来店時にご確認ください。</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Access Section -->
-  <section id="access" class="access-section">
-    <div class="container">
-      <h2 class="section-title">アクセス</h2>
-      <div class="access-grid">
-        <div class="access-info">
-          <h3>店舗情報</h3>
-          <p><strong>店舗名：</strong> beauty salon AURA</p>
-          <p><strong>住所：</strong> 東京都渋谷区道玄坂1-2-3</p>
-          <p><strong>電話：</strong> 03-XXXX-XXXX</p>
-          <p><strong>営業時間：</strong><br>月〜土：10:00 - 20:00<br>日曜日：15:00 - 19:00</p>
-          <p><strong>定休日：</strong> 月曜日</p>
+<!-- アクセス -->
+<section class="access" id="access">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="label">ACCESS</p>
+      <h2>アクセス</h2>
+    </div>
+    <div class="access-grid">
+      <div class="access-info reveal">
+        <div class="access-item">
+          <p class="access-label">住所</p>
+          <p>東京都渋谷区道玄坂1-2-3<br>渋谷駅 徒歩5分</p>
         </div>
-        <div class="map-wrap">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.7467506615155!2d139.6990109999999!3d35.65955000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b563b00109f%3A0x337328def1e2ab26!2z6YKj6LC35YyX77yI6YGT6KKLIOmAgeS6uumDnuekuumDnue-nOOBrue-o!5e0!3m2!1sja!2sjp!4v1740000000000" width="100%" height="300" style="border:0;border-radius:8px;" allowfullscreen="" loading="lazy"></iframe>
+        <div class="access-item">
+          <p class="access-label">電話</p>
+          <p>03-XXXX-XXXX</p>
+        </div>
+        <div class="access-item">
+          <p class="access-label">営業時間</p>
+          <p>月〜土: 10:00〜20:00<br>日曜: 15:00〜19:00</p>
+        </div>
+        <div class="access-item">
+          <p class="access-label">定休日</p>
+          <p>月曜日</p>
         </div>
       </div>
+      <div class="access-map reveal" style="--delay:0.2s">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.7467!2d139.6990!3d35.6595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b563b00109f%3A0x337328def1e2ab26!2z5riL6LC35YyX!5e0!3m2!1sja!2sjp!4v1740000000000!5m2!1sja!2sjp" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Footer CTA -->
-  <section class="footer-cta">
-    <div class="container">
-      <h2>今すぐ予約する</h2>
-      <p>24時間いつでもご予約・ご相談いただけます</p>
-      <a href="https://line.me/R/ti/p/%40example" class="btn-line">LINEで予約する</a>
+<!-- 予約CTA -->
+<section class="reservation" id="reservation">
+  <div class="reservation-inner">
+    <div class="reveal">
+      <p class="label label-white">RESERVATION</p>
+      <h2>ご予約・お問い合わせ</h2>
+      <p>LINEにて24時間いつでもご予約・ご相談を承っております。<br>初めての方もお気軽にどうぞ。</p>
+      <a href="https://line.me/R/" class="line-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 5.92 2 10.72c0 3.19 1.87 5.99 4.72 7.62L6 22l3.64-1.96C10.38 20.3 11.18 20.44 12 20.44c5.52 0 10-3.92 10-8.72C22 5.92 17.52 2 12 2z"/></svg>
+        LINEで予約する
+      </a>
+      <a href="tel:03-XXXX-XXXX" class="phone-btn">電話で予約する</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer>
-    <nav>
-      <a href="#services">サービス</a>
-      <a href="#stylist">スタイリスト</a>
-      <a href="#reviews">口コミ</a>
-      <a href="#pricing">料金</a>
-      <a href="#access">アクセス</a>
+<!-- フッター -->
+<footer>
+  <div class="container footer-inner">
+    <a href="#" class="footer-logo">AURA</a>
+    <nav class="footer-nav">
+      <a href="#concept">CONCEPT</a>
+      <a href="#services">SERVICES</a>
+      <a href="#gallery">GALLERY</a>
+      <a href="#team">TEAM</a>
+      <a href="#access">ACCESS</a>
     </nav>
-    <p>&copy; 2026 beauty salon AURA. All rights reserved.</p>
-  </footer>
+    <p class="copyright">© 2026 beauty salon AURA. All rights reserved.</p>
+    <p class="credit">Designed by <a href="mailto:koya@irohani.tech">koya@irohani.tech</a> | UIUXデザイン × AI実装</p>
+  </div>
+</footer>
 
-  <script src="js/script.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
