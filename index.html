@@ -3,133 +3,237 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AURA Beauty Salon | 渋谷道玄坂の美容室</title>
-  <meta name="description" content="渋谷・道玄坂の美容室AURA。UIUXデザインとAI技術で制作された最先端のサロンサイト。">
+  <title>MAISON AURA | 渋谷の美容室</title>
+  <meta name="description" content="渋谷・道玄坂の美容室 MAISON AURA。一人ひとりの美しさと向き合う完全予約制サロン。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<!-- ローディング画面 -->
+<!-- スクロール進捗バー -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- カスタムカーソル -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ローダー -->
 <div class="loader" id="loader">
-  <div class="loader-text">AURA</div>
+  <div class="loader-inner">
+    <span class="loader-letter">M</span>
+    <span class="loader-letter">A</span>
+    <span class="loader-letter">I</span>
+    <span class="loader-letter">S</span>
+    <span class="loader-letter">O</span>
+    <span class="loader-letter">N</span>
+  </div>
 </div>
 
 <!-- ヘッダー -->
 <header id="header">
-  <div class="header-inner container">
-    <a href="#" class="logo">AURA</a>
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <span class="logo-main">MAISON AURA</span>
+      <span class="logo-sub">beauty salon</span>
+    </a>
     <nav id="nav">
       <ul>
-        <li><a href="#concept">CONCEPT</a></li>
-        <li><a href="#services">SERVICES</a></li>
-        <li><a href="#gallery">GALLERY</a></li>
-        <li><a href="#team">TEAM</a></li>
-        <li><a href="#access">ACCESS</a></li>
-        <li><a href="#reservation" class="nav-btn">RESERVE</a></li>
+        <li><a href="#concept">Concept</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#access">Access</a></li>
       </ul>
     </nav>
+    <a href="#reservation" class="header-cta">予約する</a>
     <button class="hamburger" id="hamburger" aria-label="メニュー">
-      <span></span><span></span><span></span>
+      <span></span><span></span>
     </button>
   </div>
 </header>
 
 <!-- Hero -->
 <section class="hero" id="hero">
-  <div class="hero-bg">
-    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1920&q=90" alt="美容室" class="hero-img">
-    <div class="hero-overlay"></div>
+  <div class="hero-parallax" id="heroParallax">
+    <img
+      src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1920&q=90&auto=format&fit=crop"
+      alt="MAISON AURA"
+      class="hero-img"
+      id="heroImg"
+    >
+    <div class="hero-vignette"></div>
   </div>
   <div class="hero-content">
-    <p class="hero-sub fade-up">beauty salon</p>
-    <h1 class="hero-title fade-up delay-1">
-      <em>あなたらしさを</em><br>
-      <em>引き出す美容室</em>
+    <p class="hero-eyebrow" data-reveal>SHIBUYA DOGENZAKA</p>
+    <h1 class="hero-title">
+      <span class="hero-line" data-reveal-line><em>あなたの</em></span>
+      <span class="hero-line" data-reveal-line><em>美しさを</em></span>
+      <span class="hero-line" data-reveal-line><em>解き放つ</em></span>
     </h1>
-    <p class="hero-body fade-up delay-2">渋谷・道玄坂 | 完全予約制 | 丁寧なカウンセリング</p>
-    <a href="#reservation" class="hero-btn fade-up delay-3">ご予約はこちら</a>
+    <p class="hero-body" data-reveal>完全予約制 — 丁寧なカウンセリング — 渋谷道玄坂</p>
+    <div class="hero-actions" data-reveal>
+      <a href="#reservation" class="btn-primary">ご予約はこちら</a>
+      <a href="#concept" class="btn-ghost">サロンについて</a>
+    </div>
   </div>
-  <div class="scroll-hint">
-    <span class="scroll-text">SCROLL</span>
-    <span class="scroll-line"></span>
+  <div class="hero-scroll" aria-hidden="true">
+    <div class="scroll-line"></div>
+    <span>scroll</span>
+  </div>
+  <div class="hero-badge">
+    <span>since 2015</span>
   </div>
 </section>
+
+<!-- Marquee Ticker -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>カット</span>
+    <span class="ticker-dot">◆</span>
+    <span>カラー</span>
+    <span class="ticker-dot">◆</span>
+    <span>パーマ</span>
+    <span class="ticker-dot">◆</span>
+    <span>トリートメント</span>
+    <span class="ticker-dot">◆</span>
+    <span>ヘッドスパ</span>
+    <span class="ticker-dot">◆</span>
+    <span>MAISON AURA</span>
+    <span class="ticker-dot">◆</span>
+    <span>カット</span>
+    <span class="ticker-dot">◆</span>
+    <span>カラー</span>
+    <span class="ticker-dot">◆</span>
+    <span>パーマ</span>
+    <span class="ticker-dot">◆</span>
+    <span>トリートメント</span>
+    <span class="ticker-dot">◆</span>
+    <span>ヘッドスパ</span>
+    <span class="ticker-dot">◆</span>
+    <span>MAISON AURA</span>
+    <span class="ticker-dot">◆</span>
+  </div>
+</div>
 
 <!-- コンセプト -->
 <section class="concept" id="concept">
-  <div class="concept-grid container">
-    <div class="concept-img reveal-left">
-      <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=85" alt="サロン内観">
+  <div class="concept-media">
+    <div class="concept-img-wrap" id="conceptImgWrap">
+      <img
+        src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=900&q=90&auto=format&fit=crop"
+        alt="サロン内観"
+        class="concept-img"
+      >
+      <div class="concept-img-overlay"></div>
     </div>
-    <div class="concept-text reveal-right">
-      <p class="label">OUR CONCEPT</p>
-      <h2>一人ひとりの<br><em>「らしさ」</em>と向き合う</h2>
-      <p class="body-text">AURAは、お客様一人ひとりの個性・ライフスタイル・なりたいイメージを丁寧にヒアリングし、最高の状態を引き出すことにこだわっています。</p>
-      <p class="body-text">ヘアスタイルは「なんとなく気分が上がる」だけでなく、自信と活力を生み出すもの。そんな体験をお届けします。</p>
-    </div>
+  </div>
+  <div class="concept-text">
+    <p class="eyebrow" data-reveal>— Our Philosophy</p>
+    <h2 class="section-title" data-reveal>
+      一人ひとりの<br>
+      <em>「らしさ」</em>と<br>
+      向き合う
+    </h2>
+    <p class="body-text" data-reveal>
+      AURAは、お客様一人ひとりの個性・ライフスタイル・
+      なりたいイメージを丁寧にヒアリングし、
+      最高の状態を引き出すことにこだわっています。
+    </p>
+    <p class="body-text" data-reveal>
+      ヘアスタイルは「なんとなく気分が上がる」だけでなく、
+      自信と活力を生み出すもの。そんな体験をお届けします。
+    </p>
+    <a href="#reservation" class="link-arrow" data-reveal>
+      <span>ご予約はこちら</span>
+      <svg width="24" height="12" viewBox="0 0 24 12" fill="none"><path d="M0 6h22M17 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg>
+    </a>
   </div>
 </section>
 
+<!-- Stats -->
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat-item" data-reveal>
+      <span class="stat-num" data-count="10">0</span><span class="stat-unit">+</span>
+      <p class="stat-label">年の経験</p>
+    </div>
+    <div class="stat-item" data-reveal>
+      <span class="stat-num" data-count="2000">0</span><span class="stat-unit">+</span>
+      <p class="stat-label">累計施術数</p>
+    </div>
+    <div class="stat-item" data-reveal>
+      <span class="stat-num" data-count="98">0</span><span class="stat-unit">%</span>
+      <p class="stat-label">顧客満足度</p>
+    </div>
+    <div class="stat-item" data-reveal>
+      <span class="stat-num" data-count="3">0</span><span class="stat-unit">名</span>
+      <p class="stat-label">専属スタイリスト</p>
+    </div>
+  </div>
+</div>
+
 <!-- サービス -->
 <section class="services" id="services">
-  <div class="container">
-    <div class="section-header reveal">
-      <p class="label">SERVICES</p>
-      <h2>サービス一覧</h2>
+  <div class="services-header">
+    <p class="eyebrow" data-reveal>— Services</p>
+    <h2 class="section-title" data-reveal>サービス</h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card" data-reveal style="--delay:0s">
+      <div class="service-num">01</div>
+      <div class="service-img-wrap">
+        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=700&q=85&auto=format&fit=crop" alt="カット" loading="lazy">
+      </div>
+      <div class="service-body">
+        <h3 class="service-name">カット</h3>
+        <p class="service-desc">骨格・髪質・ライフスタイルに合わせた丁寧なカウンセリングのうえ、最適なスタイルをご提案します。</p>
+        <div class="service-footer">
+          <span class="service-price">¥3,500〜</span>
+          <span class="service-time">約40分</span>
+        </div>
+      </div>
     </div>
-    <div class="services-grid">
-      <div class="service-card reveal" style="--delay:0s">
-        <div class="service-img-wrap">
-          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80" alt="カット">
-          <div class="service-overlay">
-            <p class="service-detail">経験豊富なスタイリストが丁寧にカウンセリングし、骨格・髪質に合ったカットを提案します。</p>
-          </div>
-        </div>
-        <div class="service-info">
-          <h3>カット</h3>
-          <p class="service-price">¥3,500〜</p>
-          <p class="service-time">約40分</p>
+    <div class="service-card" data-reveal style="--delay:0.12s">
+      <div class="service-num">02</div>
+      <div class="service-img-wrap">
+        <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=700&q=85&auto=format&fit=crop" alt="カラー" loading="lazy">
+      </div>
+      <div class="service-body">
+        <h3 class="service-name">カラー</h3>
+        <p class="service-desc">トレンドカラーからナチュラルまで。髪のダメージを最小限に抑え、発色と持続性にこだわります。</p>
+        <div class="service-footer">
+          <span class="service-price">¥5,000〜</span>
+          <span class="service-time">約90分</span>
         </div>
       </div>
-      <div class="service-card reveal" style="--delay:0.1s">
-        <div class="service-img-wrap">
-          <img src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?w=600&q=80" alt="カラー">
-          <div class="service-overlay">
-            <p class="service-detail">トレンドカラーからナチュラルまで。髪のダメージを最小限に、発色にこだわります。</p>
-          </div>
-        </div>
-        <div class="service-info">
-          <h3>カラー</h3>
-          <p class="service-price">¥5,000〜8,000</p>
-          <p class="service-time">約90分</p>
+    </div>
+    <div class="service-card" data-reveal style="--delay:0.24s">
+      <div class="service-num">03</div>
+      <div class="service-img-wrap">
+        <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=700&q=85&auto=format&fit=crop" alt="パーマ" loading="lazy">
+      </div>
+      <div class="service-body">
+        <h3 class="service-name">パーマ</h3>
+        <p class="service-desc">ライフスタイルに合ったウェーブやカールを。毎朝のスタイリングが格段に楽になります。</p>
+        <div class="service-footer">
+          <span class="service-price">¥6,000〜</span>
+          <span class="service-time">約120分</span>
         </div>
       </div>
-      <div class="service-card reveal" style="--delay:0.2s">
-        <div class="service-img-wrap">
-          <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=600&q=80" alt="パーマ">
-          <div class="service-overlay">
-            <p class="service-detail">ライフスタイルに合ったウェーブやカールを提案。毎朝のスタイリングが楽になります。</p>
-          </div>
-        </div>
-        <div class="service-info">
-          <h3>パーマ</h3>
-          <p class="service-price">¥6,000〜10,000</p>
-          <p class="service-time">約120分</p>
-        </div>
+    </div>
+    <div class="service-card" data-reveal style="--delay:0.36s">
+      <div class="service-num">04</div>
+      <div class="service-img-wrap">
+        <img src="https://images.unsplash.com/photo-1556228841-a3c527ebefe5?w=700&q=85&auto=format&fit=crop" alt="トリートメント" loading="lazy">
       </div>
-      <div class="service-card reveal" style="--delay:0.3s">
-        <div class="service-img-wrap">
-          <img src="https://images.unsplash.com/photo-1556228841-a3c527ebefe5?w=600&q=80" alt="トリートメント">
-          <div class="service-overlay">
-            <p class="service-detail">サロン品質のトリートメントで、芯から潤う髪へ。ダメージ改善・ツヤ感アップ。</p>
-          </div>
-        </div>
-        <div class="service-info">
-          <h3>トリートメント</h3>
-          <p class="service-price">¥2,000〜5,000</p>
-          <p class="service-time">約30分</p>
+      <div class="service-body">
+        <h3 class="service-name">トリートメント</h3>
+        <p class="service-desc">サロン専売品を使用した深部補修。芯から潤う、ツヤのある髪へと導きます。</p>
+        <div class="service-footer">
+          <span class="service-price">¥2,000〜</span>
+          <span class="service-time">約30分</span>
         </div>
       </div>
     </div>
@@ -138,81 +242,92 @@
 
 <!-- ギャラリー -->
 <section class="gallery" id="gallery">
-  <div class="section-header reveal container">
-    <p class="label">GALLERY</p>
-    <h2>スタイル事例</h2>
+  <div class="gallery-header">
+    <p class="eyebrow" data-reveal>— Gallery</p>
+    <h2 class="section-title" data-reveal>スタイル事例</h2>
   </div>
   <div class="gallery-grid">
-    <div class="gallery-item tall reveal">
-      <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=85" alt="スタイル1">
-      <div class="gallery-hover"><span>STYLE 01</span></div>
+    <div class="gallery-item tall" data-reveal>
+      <img src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?w=800&q=85&auto=format&fit=crop" alt="style 01" loading="lazy">
+      <div class="gallery-caption"><span>Style 01</span></div>
     </div>
-    <div class="gallery-item reveal" style="--delay:0.1s">
-      <img src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?w=600&q=85" alt="スタイル2">
-      <div class="gallery-hover"><span>STYLE 02</span></div>
+    <div class="gallery-item" data-reveal style="--delay:0.1s">
+      <img src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?w=800&q=85&auto=format&fit=crop" alt="style 02" loading="lazy">
+      <div class="gallery-caption"><span>Style 02</span></div>
     </div>
-    <div class="gallery-item reveal" style="--delay:0.2s">
-      <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=600&q=85" alt="スタイル3">
-      <div class="gallery-hover"><span>STYLE 03</span></div>
+    <div class="gallery-item" data-reveal style="--delay:0.2s">
+      <img src="https://images.unsplash.com/photo-1559599101-f09722fb4948?w=800&q=85&auto=format&fit=crop" alt="style 03" loading="lazy">
+      <div class="gallery-caption"><span>Style 03</span></div>
     </div>
-    <div class="gallery-item tall reveal" style="--delay:0.1s">
-      <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=85" alt="スタイル4">
-      <div class="gallery-hover"><span>STYLE 04</span></div>
+    <div class="gallery-item tall" data-reveal style="--delay:0.1s">
+      <img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?w=800&q=85&auto=format&fit=crop" alt="style 04" loading="lazy">
+      <div class="gallery-caption"><span>Style 04</span></div>
     </div>
-    <div class="gallery-item reveal" style="--delay:0.3s">
-      <img src="https://images.unsplash.com/photo-1556228841-a3c527ebefe5?w=600&q=85" alt="スタイル5">
-      <div class="gallery-hover"><span>STYLE 05</span></div>
+    <div class="gallery-item" data-reveal style="--delay:0.3s">
+      <img src="https://images.unsplash.com/photo-1512207736890-6ffed8a84e8d?w=800&q=85&auto=format&fit=crop" alt="style 05" loading="lazy">
+      <div class="gallery-caption"><span>Style 05</span></div>
     </div>
-    <div class="gallery-item reveal" style="--delay:0.4s">
-      <img src="https://images.unsplash.com/photo-1559599101-f09722fb4948?w=600&q=85" alt="スタイル6">
-      <div class="gallery-hover"><span>STYLE 06</span></div>
+    <div class="gallery-item" data-reveal style="--delay:0.4s">
+      <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=800&q=85&auto=format&fit=crop" alt="style 06" loading="lazy">
+      <div class="gallery-caption"><span>Style 06</span></div>
     </div>
   </div>
 </section>
 
+<!-- クォート -->
+<div class="quote-section">
+  <div class="quote-inner">
+    <blockquote class="quote-text" data-reveal>
+      "美しさは、<em>あなたの中に</em>すでにある。<br>私たちはそれを引き出すだけ。"
+    </blockquote>
+    <cite class="quote-cite" data-reveal>— 田中 太郎 / Hair Director</cite>
+  </div>
+</div>
+
 <!-- チーム -->
 <section class="team" id="team">
-  <div class="container">
-    <div class="section-header reveal">
-      <p class="label">OUR TEAM</p>
-      <h2>スタイリスト紹介</h2>
+  <div class="team-header">
+    <p class="eyebrow" data-reveal>— Our Team</p>
+    <h2 class="section-title" data-reveal>スタイリスト</h2>
+  </div>
+  <div class="team-grid">
+    <div class="team-card featured" data-reveal>
+      <div class="team-img-wrap">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=85&auto=format&fit=crop" alt="田中 太郎" loading="lazy">
+        <div class="team-img-overlay"></div>
+      </div>
+      <div class="team-info">
+        <p class="team-role">Hair Director</p>
+        <h3 class="team-name">田中 太郎</h3>
+        <p class="team-exp">10年のキャリア</p>
+        <div class="team-tag">カラー・トレンドスタイル</div>
+        <p class="team-quote">"お客様の笑顔がいちばんのモチベーション。一緒に理想のスタイルを。"</p>
+      </div>
     </div>
-    <div class="team-grid">
-      <div class="team-card reveal">
-        <div class="team-img-wrap">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="田中太郎">
-        </div>
-        <div class="team-info">
-          <p class="team-role">HAIR DIRECTOR</p>
-          <h3>田中 太郎</h3>
-          <p class="team-exp">経験 10年</p>
-          <p class="team-spec">カラー・トレンドスタイル</p>
-          <p class="team-msg">「お客様の笑顔がいちばんのモチベーションです。一緒に理想のスタイルを作りましょう。」</p>
-        </div>
+    <div class="team-card" data-reveal style="--delay:0.15s">
+      <div class="team-img-wrap">
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=85&auto=format&fit=crop" alt="鈴木 花子" loading="lazy">
+        <div class="team-img-overlay"></div>
       </div>
-      <div class="team-card reveal" style="--delay:0.15s">
-        <div class="team-img-wrap">
-          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80" alt="鈴木花子">
-        </div>
-        <div class="team-info">
-          <p class="team-role">STYLIST</p>
-          <h3>鈴木 花子</h3>
-          <p class="team-exp">経験 8年</p>
-          <p class="team-spec">パーマ・ヘアケア</p>
-          <p class="team-msg">「毎日のお手入れが楽になるスタイルをご提案します。お気軽にご相談ください。」</p>
-        </div>
+      <div class="team-info">
+        <p class="team-role">Stylist</p>
+        <h3 class="team-name">鈴木 花子</h3>
+        <p class="team-exp">8年のキャリア</p>
+        <div class="team-tag">パーマ・ヘアケア</div>
+        <p class="team-quote">"毎日のお手入れが楽になるスタイルをご提案します。"</p>
       </div>
-      <div class="team-card reveal" style="--delay:0.3s">
-        <div class="team-img-wrap">
-          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80" alt="伊藤美咲">
-        </div>
-        <div class="team-info">
-          <p class="team-role">STYLIST</p>
-          <h3>伊藤 美咲</h3>
-          <p class="team-exp">経験 5年</p>
-          <p class="team-spec">キッズ・カウンセリング</p>
-          <p class="team-msg">「お子様からご年配の方まで、笑顔になれるスタイルをお届けします。」</p>
-        </div>
+    </div>
+    <div class="team-card" data-reveal style="--delay:0.3s">
+      <div class="team-img-wrap">
+        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&q=85&auto=format&fit=crop" alt="伊藤 美咲" loading="lazy">
+        <div class="team-img-overlay"></div>
+      </div>
+      <div class="team-info">
+        <p class="team-role">Stylist</p>
+        <h3 class="team-name">伊藤 美咲</h3>
+        <p class="team-exp">5年のキャリア</p>
+        <div class="team-tag">キッズ・カウンセリング</div>
+        <p class="team-quote">"お子様からご年配の方まで、笑顔になれるスタイルを。"</p>
       </div>
     </div>
   </div>
@@ -220,133 +335,368 @@
 
 <!-- お客様の声 -->
 <section class="reviews">
-  <div class="container">
-    <div class="section-header reveal">
-      <p class="label">REVIEWS</p>
-      <h2>お客様の声</h2>
+  <div class="reviews-inner">
+    <div class="reviews-header">
+      <p class="eyebrow eyebrow-light" data-reveal>— Client Reviews</p>
+      <h2 class="section-title section-title-light" data-reveal>お客様の声</h2>
     </div>
     <div class="reviews-grid">
-      <div class="review-card reveal">
+      <div class="review-card" data-reveal>
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">「丁寧なカウンセリングで理想の色にしてもらえました。トリートメントも仕上がりが全然違う！次回も絶対またここで。」</p>
+        <p class="review-text">「丁寧なカウンセリングで理想の色にしてもらえました。トリートメントも仕上がりが全然違う。次回も絶対またここで。」</p>
         <div class="reviewer">
-          <p class="reviewer-name">山田 さゆり 様</p>
-          <p class="reviewer-service">カラー & トリートメント</p>
+          <div class="reviewer-info">
+            <p class="reviewer-name">山田 さゆり</p>
+            <p class="reviewer-service">カラー & トリートメント</p>
+          </div>
         </div>
       </div>
-      <div class="review-card reveal" style="--delay:0.15s">
+      <div class="review-card" data-reveal style="--delay:0.12s">
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">「初めて来たのに希望をしっかり聞いてくれて、大満足の仕上がりでした。スタッフの方も感じよくて居心地が良かったです。」</p>
+        <p class="review-text">「初めて来たのに希望をしっかり聞いてくれて、大満足の仕上がりでした。スタッフの方も感じよくて居心地が最高でした。」</p>
         <div class="reviewer">
-          <p class="reviewer-name">佐藤 けんじ 様</p>
-          <p class="reviewer-service">カット</p>
+          <div class="reviewer-info">
+            <p class="reviewer-name">佐藤 けんじ</p>
+            <p class="reviewer-service">カット</p>
+          </div>
         </div>
       </div>
-      <div class="review-card reveal" style="--delay:0.3s">
+      <div class="review-card" data-reveal style="--delay:0.24s">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">「自分の髪質を理解した上でスタイルを提案してもらえました。毎朝のセットが楽になって本当に嬉しいです！」</p>
         <div class="reviewer">
-          <p class="reviewer-name">中村 はるか 様</p>
-          <p class="reviewer-service">パーマ</p>
+          <div class="reviewer-info">
+            <p class="reviewer-name">中村 はるか</p>
+            <p class="reviewer-service">カット & パーマ</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 料金表 -->
-<section class="pricing">
-  <div class="container">
-    <div class="section-header reveal">
-      <p class="label">PRICE LIST</p>
-      <h2>料金表</h2>
+<!-- 料金 -->
+<section class="pricing" id="pricing">
+  <div class="pricing-inner">
+    <div class="pricing-header">
+      <p class="eyebrow" data-reveal>— Price Menu</p>
+      <h2 class="section-title" data-reveal>料金表</h2>
     </div>
-    <div class="pricing-wrap reveal">
-      <table class="pricing-table">
-        <thead>
-          <tr><th>メニュー</th><th>料金</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>カット</td><td>¥3,500〜</td></tr>
-          <tr><td>カラー（リタッチ）</td><td>¥5,000〜</td></tr>
-          <tr><td>カラー（フルカラー）</td><td>¥8,000〜</td></tr>
-          <tr><td>パーマ</td><td>¥6,000〜</td></tr>
-          <tr><td>ストレートパーマ</td><td>¥10,000〜</td></tr>
-          <tr><td>トリートメント</td><td>¥2,000〜</td></tr>
-          <tr class="highlight"><td>カット + カラー</td><td>¥10,000〜</td></tr>
-          <tr class="highlight"><td>カット + パーマ</td><td>¥12,000〜</td></tr>
-        </tbody>
-      </table>
-      <p class="pricing-note">※料金は消費税込み。髪の長さ・状態によって異なります。ご来店時にご確認ください。</p>
-    </div>
-  </div>
-</section>
-
-<!-- アクセス -->
-<section class="access" id="access">
-  <div class="container">
-    <div class="section-header reveal">
-      <p class="label">ACCESS</p>
-      <h2>アクセス</h2>
-    </div>
-    <div class="access-grid">
-      <div class="access-info reveal">
-        <div class="access-item">
-          <p class="access-label">住所</p>
-          <p>東京都渋谷区道玄坂1-2-3<br>渋谷駅 徒歩5分</p>
-        </div>
-        <div class="access-item">
-          <p class="access-label">電話</p>
-          <p>03-XXXX-XXXX</p>
-        </div>
-        <div class="access-item">
-          <p class="access-label">営業時間</p>
-          <p>月〜土: 10:00〜20:00<br>日曜: 15:00〜19:00</p>
-        </div>
-        <div class="access-item">
-          <p class="access-label">定休日</p>
-          <p>月曜日</p>
-        </div>
+    <div class="pricing-table" data-reveal>
+      <div class="pricing-row">
+        <span class="pricing-service">カット（シャンプー・ブロー込み）</span>
+        <span class="pricing-dots"></span>
+        <span class="pricing-price">¥3,500〜</span>
       </div>
-      <div class="access-map reveal" style="--delay:0.2s">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.7467!2d139.6990!3d35.6595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b563b00109f%3A0x337328def1e2ab26!2z5riL6LC35YyX!5e0!3m2!1sja!2sjp!4v1740000000000!5m2!1sja!2sjp" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      <div class="pricing-row">
+        <span class="pricing-service">カラー（フルカラー）</span>
+        <span class="pricing-dots"></span>
+        <span class="pricing-price">¥5,000〜</span>
+      </div>
+      <div class="pricing-row">
+        <span class="pricing-service">カラー（ハイライト）</span>
+        <span class="pricing-dots"></span>
+        <span class="pricing-price">¥8,000〜</span>
+      </div>
+      <div class="pricing-row">
+        <span class="pricing-service">パーマ（デジタルパーマ）</span>
+        <span class="pricing-dots"></span>
+        <span class="pricing-price">¥10,000〜</span>
+      </div>
+      <div class="pricing-row">
+        <span class="pricing-service">トリートメント（単品）</span>
+        <span class="pricing-dots"></span>
+        <span class="pricing-price">¥2,000〜</span>
+      </div>
+      <div class="pricing-row">
+        <span class="pricing-service">ヘッドスパ（60分）</span>
+        <span class="pricing-dots"></span>
+        <span class="pricing-price">¥6,000〜</span>
       </div>
     </div>
+    <p class="pricing-note" data-reveal>※ 価格はすべて税込。詳細はお問い合わせください。</p>
   </div>
 </section>
 
 <!-- 予約CTA -->
 <section class="reservation" id="reservation">
   <div class="reservation-inner">
-    <div class="reveal">
-      <p class="label label-white">RESERVATION</p>
-      <h2>ご予約・お問い合わせ</h2>
-      <p>LINEにて24時間いつでもご予約・ご相談を承っております。<br>初めての方もお気軽にどうぞ。</p>
-      <a href="https://line.me/R/" class="line-btn">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 5.92 2 10.72c0 3.19 1.87 5.99 4.72 7.62L6 22l3.64-1.96C10.38 20.3 11.18 20.44 12 20.44c5.52 0 10-3.92 10-8.72C22 5.92 17.52 2 12 2z"/></svg>
-        LINEで予約する
+    <p class="eyebrow eyebrow-light" data-reveal>— Reservation</p>
+    <h2 class="reservation-title" data-reveal>
+      <em>あなたの変身を、</em><br>今すぐ予約する
+    </h2>
+    <p class="reservation-body" data-reveal>完全予約制のため、お電話またはWEB予約をご利用ください。<br>初めてのお客様も丁寧にご案内いたします。</p>
+    <div class="reservation-actions" data-reveal>
+      <a href="tel:03-0000-0000" class="btn-primary btn-large">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.56a16 16 0 0 0 6.29 6.29l1.06-1.06a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>03-0000-0000</span>
       </a>
-      <a href="tel:03-XXXX-XXXX" class="phone-btn">電話で予約する</a>
+      <a href="#" class="btn-outline btn-large">WEB予約</a>
+    </div>
+    <div class="reservation-hours" data-reveal>
+      <div class="hours-item">
+        <span class="hours-label">営業時間</span>
+        <span class="hours-value">10:00 — 19:00（最終受付 18:00）</span>
+      </div>
+      <div class="hours-item">
+        <span class="hours-label">定休日</span>
+        <span class="hours-value">毎週火曜日</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- アクセス -->
+<section class="access" id="access">
+  <div class="access-inner">
+    <div class="access-info">
+      <p class="eyebrow" data-reveal>— Access</p>
+      <h2 class="section-title" data-reveal>アクセス</h2>
+      <ul class="access-list" data-reveal>
+        <li>
+          <span class="access-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </span>
+          <span>東京都渋谷区道玄坂2-XX-X<br>プレミアムビル3F</span>
+        </li>
+        <li>
+          <span class="access-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </span>
+          <span>渋谷駅 西口より徒歩5分<br>道玄坂方面へ直進</span>
+        </li>
+        <li>
+          <span class="access-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </span>
+          <span>営業時間：10:00〜19:00<br>定休日：毎週火曜日</span>
+        </li>
+      </ul>
+    </div>
+    <div class="access-map" data-reveal>
+      <div class="map-placeholder">
+        <img
+          src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&q=80&auto=format&fit=crop"
+          alt="アクセスマップ"
+          loading="lazy"
+        >
+        <div class="map-pin">
+          <svg width="24" height="32" viewBox="0 0 24 32" fill="none"><path d="M12 0C5.4 0 0 5.4 0 12c0 9 12 20 12 20s12-11 12-20c0-6.6-5.4-12-12-12z" fill="#9B8B6E"/><circle cx="12" cy="12" r="4" fill="white"/></svg>
+          <span>MAISON AURA</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- フッター -->
-<footer>
-  <div class="container footer-inner">
-    <a href="#" class="footer-logo">AURA</a>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <p class="footer-logo">MAISON AURA</p>
+      <p class="footer-tagline">beauty salon — shibuya dogenzaka</p>
+    </div>
     <nav class="footer-nav">
-      <a href="#concept">CONCEPT</a>
-      <a href="#services">SERVICES</a>
-      <a href="#gallery">GALLERY</a>
-      <a href="#team">TEAM</a>
-      <a href="#access">ACCESS</a>
+      <ul>
+        <li><a href="#concept">Concept</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#access">Access</a></li>
+        <li><a href="#reservation">Reservation</a></li>
+      </ul>
     </nav>
-    <p class="copyright">© 2026 beauty salon AURA. All rights reserved.</p>
-    <p class="credit">Designed by <a href="mailto:koya@irohani.tech">koya@irohani.tech</a> | UIUXデザイン × AI実装</p>
+    <div class="footer-social">
+      <a href="#" class="social-link" aria-label="Instagram">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="LINE">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 MAISON AURA. All rights reserved.</p>
+    <p>Powered by AI Implementation — Demo Site</p>
   </div>
 </footer>
 
-<script src="js/script.js"></script>
+<script>
+/* ============================================================
+   MAISON AURA — Main JavaScript
+   ============================================================ */
+
+(function() {
+  'use strict';
+
+  /* ---- Loader ---- */
+  const loader = document.getElementById('loader');
+  const letters = loader.querySelectorAll('.loader-letter');
+
+  letters.forEach((l, i) => {
+    l.style.animationDelay = `${i * 0.08}s`;
+  });
+
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      loader.classList.add('hidden');
+      document.body.classList.add('loaded');
+    }, 1200);
+  });
+
+  /* ---- Custom Cursor ---- */
+  const cursor = document.getElementById('cursor');
+  const cursorRing = document.getElementById('cursorRing');
+  let mouseX = 0, mouseY = 0;
+  let ringX = 0, ringY = 0;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    cursor.style.transform = `translate(${mouseX - 4}px, ${mouseY - 4}px)`;
+  });
+
+  function animateRing() {
+    ringX += (mouseX - ringX) * 0.12;
+    ringY += (mouseY - ringY) * 0.12;
+    cursorRing.style.transform = `translate(${ringX - 16}px, ${ringY - 16}px)`;
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  document.querySelectorAll('a, button, .service-card, .gallery-item, .team-card').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.classList.add('cursor-hover');
+      cursorRing.classList.add('cursor-hover');
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.classList.remove('cursor-hover');
+      cursorRing.classList.remove('cursor-hover');
+    });
+  });
+
+  /* ---- Scroll Progress Bar ---- */
+  const progressBar = document.getElementById('progressBar');
+  window.addEventListener('scroll', () => {
+    const progress = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+    progressBar.style.transform = `scaleX(${progress})`;
+  }, { passive: true });
+
+  /* ---- Header scroll behavior ---- */
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  /* ---- Hamburger ---- */
+  const hamburger = document.getElementById('hamburger');
+  const nav = document.getElementById('nav');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    nav.classList.toggle('open');
+  });
+
+  /* ---- Hero Parallax ---- */
+  const heroImg = document.getElementById('heroImg');
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const scrollY = window.scrollY;
+        if (scrollY < window.innerHeight * 1.5) {
+          heroImg.style.transform = `translateY(${scrollY * 0.3}px) scale(1.08)`;
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  /* ---- Ticker ---- */
+  const ticker = document.querySelector('.ticker-track');
+  let tickerPos = 0;
+  function animateTicker() {
+    tickerPos -= 0.6;
+    const w = ticker.scrollWidth / 2;
+    if (Math.abs(tickerPos) >= w) tickerPos = 0;
+    ticker.style.transform = `translateX(${tickerPos}px)`;
+    requestAnimationFrame(animateTicker);
+  }
+  animateTicker();
+
+  /* ---- Scroll Reveal (Intersection Observer) ---- */
+  const revealEls = document.querySelectorAll('[data-reveal], [data-reveal-line]');
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const delay = el.style.getPropertyValue('--delay') || '0s';
+        setTimeout(() => {
+          el.classList.add('revealed');
+        }, parseFloat(delay) * 1000);
+        revealObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  /* ---- Counter Animation ---- */
+  const counterEls = document.querySelectorAll('[data-count]');
+
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.dataset.count, 10);
+        const duration = 2000;
+        let start = null;
+
+        function step(timestamp) {
+          if (!start) start = timestamp;
+          const progress = Math.min((timestamp - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.floor(eased * target).toLocaleString('ja-JP');
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+        counterObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counterEls.forEach(el => counterObserver.observe(el));
+
+  /* ---- Service card hover magnetic effect ---- */
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left - rect.width / 2) / rect.width;
+      const y = (e.clientY - rect.top - rect.height / 2) / rect.height;
+      card.style.transform = `perspective(800px) rotateX(${-y * 4}deg) rotateY(${x * 4}deg) translateY(-6px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+    });
+  });
+
+  /* ---- Smooth scroll for anchors ---- */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const target = document.querySelector(anchor.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (nav.classList.contains('open')) {
+          hamburger.classList.remove('open');
+          nav.classList.remove('open');
+        }
+      }
+    });
+  });
+
+})();
+</script>
 </body>
 </html>
