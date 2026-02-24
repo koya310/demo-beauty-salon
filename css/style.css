@@ -380,15 +380,15 @@ header.scrolled .hamburger span { background: var(--text); }
   object-fit: cover;
   transform: scale(1.08);
   will-change: transform;
-  filter: brightness(0.88) contrast(1.02);
+  filter: brightness(0.82) saturate(0.9);
 }
 
 .hero-vignette {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(to top, rgba(10,10,10,0.75) 0%, rgba(10,10,10,0.1) 50%, rgba(10,10,10,0.3) 100%),
-    linear-gradient(to right, rgba(10,10,10,0.4) 0%, transparent 60%);
+    linear-gradient(to top, rgba(8,8,8,0.82) 0%, rgba(8,8,8,0.25) 45%, rgba(8,8,8,0.45) 100%),
+    linear-gradient(to right, rgba(8,8,8,0.5) 0%, transparent 65%);
 }
 
 .hero-content {
@@ -851,12 +851,12 @@ header.scrolled .hamburger span { background: var(--text); }
   height: 100%;
   object-fit: cover;
   transition: transform 0.9s var(--ease-out), filter 0.9s var(--ease-out);
-  filter: brightness(0.92);
+  filter: brightness(0.97) saturate(0.88);
 }
 
 .gallery-item:hover img {
   transform: scale(1.08);
-  filter: brightness(1);
+  filter: brightness(1.05) saturate(1);
 }
 
 .gallery-caption {
