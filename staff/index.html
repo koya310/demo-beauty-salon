@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Staff | MAISON AURA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Shippori+Mincho+B1:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .page-hero { padding: clamp(120px,15vh,180px) clamp(24px,6vw,80px) clamp(60px,8vh,100px); max-width:1200px; margin:0 auto; }
+    .page-hero__sub { font-size:0.75rem; letter-spacing:0.25em; color:#C4897A; text-transform:uppercase; margin-bottom:20px; }
+    .page-hero__title { font-family:'Playfair Display',serif; font-size:clamp(2.5rem,6vw,5rem); font-weight:400; color:#181818; margin-bottom:16px; }
+    .page-hero__desc { color:#666666; font-size:0.9rem; line-height:1.8; max-width:480px; }
+    .staff-section { max-width:1200px; margin:0 auto; padding:0 clamp(24px,6vw,80px) clamp(60px,8vh,100px); }
+    .staff-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(24px,3vw,48px); }
+    .staff-card { }
+    .staff-card__img { width:100%; aspect-ratio:3/4; object-fit:cover; margin-bottom:24px; filter:grayscale(0.2); }
+    .staff-card__role { font-size:0.65rem; letter-spacing:0.2em; color:#C4897A; text-transform:uppercase; margin-bottom:8px; }
+    .staff-card__name { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:400; color:#181818; margin-bottom:4px; }
+    .staff-card__name-ja { font-size:0.78rem; color:#666666; margin-bottom:16px; letter-spacing:0.05em; }
+    .staff-card__body { font-size:0.8rem; color:#666666; line-height:1.8; margin-bottom:16px; }
+    .staff-card__tags { display:flex; flex-wrap:wrap; gap:8px; }
+    .staff-card__tag { font-size:0.65rem; letter-spacing:0.1em; color:#666666; border:1px solid rgba(24,24,24,0.12); padding:4px 10px; }
+    .back-link { display:inline-flex; align-items:center; gap:8px; font-size:0.72rem; letter-spacing:0.2em; color:#666666; text-transform:uppercase; text-decoration:none; margin-bottom:48px; transition:color 0.3s; }
+    .back-link:hover { color:#C4897A; }
+    @media (max-width:768px) { .staff-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body style="background:#FBFBF9;color:#181818;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;">
+
+<header id="header">
+  <div class="header-inner">
+    <a href="../" class="logo">
+      <span class="logo-main">MAISON AURA</span>
+      <span class="logo-sub">beauty salon</span>
+    </a>
+    <a href="../#reservation" class="header-cta">予約する</a>
+  </div>
+</header>
+
+<div class="page-hero">
+  <a href="../" class="back-link">← サロントップへ</a>
+  <p class="page-hero__sub">Our Team</p>
+  <h1 class="page-hero__title">スタッフ</h1>
+  <p class="page-hero__desc">経験豊富なスタイリストが<br>一人ひとりの美しさと向き合います。</p>
+</div>
+
+<div class="staff-section">
+  <div class="staff-grid">
+    <div class="staff-card">
+      <img src="../images/stylist_director.jpg" alt="田中 陽子" class="staff-card__img">
+      <p class="staff-card__role">Art Director</p>
+      <h2 class="staff-card__name">Yoko Tanaka</h2>
+      <p class="staff-card__name-ja">田中 陽子</p>
+      <p class="staff-card__body">パリ・ニューヨークでの研修を経て、サロン立ち上げから携わる。カラーとカットの融合で「その人だけの顔」を作ることが信条。</p>
+      <div class="staff-card__tags">
+        <span class="staff-card__tag">ハイライト</span>
+        <span class="staff-card__tag">バレイヤージュ</span>
+        <span class="staff-card__tag">カラー設計</span>
+      </div>
+    </div>
+    <div class="staff-card">
+      <img src="../images/stylist_hanako.jpg" alt="鈴木 花子" class="staff-card__img">
+      <p class="staff-card__role">Senior Stylist</p>
+      <h2 class="staff-card__name">Hanako Suzuki</h2>
+      <p class="staff-card__name-ja">鈴木 花子</p>
+      <p class="staff-card__body">骨格診断を取り入れたカット技術が得意。「似合う」より「心地よい」スタイルを大切にしている。リピート率サロン最高の人気スタイリスト。</p>
+      <div class="staff-card__tags">
+        <span class="staff-card__tag">骨格カット</span>
+        <span class="staff-card__tag">ショートボブ</span>
+        <span class="staff-card__tag">ストレート</span>
+      </div>
+    </div>
+    <div class="staff-card">
+      <img src="../images/stylist_misaki.jpg" alt="伊藤 美咲" class="staff-card__img">
+      <p class="staff-card__role">Stylist</p>
+      <h2 class="staff-card__name">Misaki Ito</h2>
+      <p class="staff-card__name-ja">伊藤 美咲</p>
+      <p class="staff-card__body">パーマとトリートメントを専門とするテクニシャン。ダメージレスで理想の質感を引き出す技術に定評あり。</p>
+      <div class="staff-card__tags">
+        <span class="staff-card__tag">デジタルパーマ</span>
+        <span class="staff-card__tag">トリートメント</span>
+        <span class="staff-card__tag">ヘアケア</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer style="padding:32px clamp(24px,6vw,80px);border-top:1px solid rgba(24,24,24,0.08);margin-top:60px;background:#FBFBF9;">
+  <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;">
+    <span style="font-size:0.8rem;color:#4A4744;">MAISON AURA beauty salon</span>
+    <p style="font-size:0.72rem;color:#4A4744;">© 2026 MAISON AURA. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

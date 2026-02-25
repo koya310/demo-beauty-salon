@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Access | MAISON AURA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .page-hero { padding:clamp(120px,15vh,180px) clamp(24px,6vw,80px) clamp(60px,8vh,100px); max-width:1200px; margin:0 auto; }
+    .page-hero__sub { font-size:0.75rem; letter-spacing:0.25em; color:#C4897A; text-transform:uppercase; margin-bottom:20px; }
+    .page-hero__title { font-family:'Playfair Display',serif; font-size:clamp(2.5rem,6vw,5rem); font-weight:400; color:#181818; margin-bottom:16px; }
+    .access-section { max-width:1200px; margin:0 auto; padding:0 clamp(24px,6vw,80px) clamp(60px,8vh,100px); }
+    .access-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(48px,6vw,96px); margin-bottom:60px; }
+    .access-info__title { font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:400; color:#C4897A; margin-bottom:32px; }
+    .info-row { display:flex; gap:24px; padding:16px 0; border-bottom:1px solid rgba(24,24,24,0.06); }
+    .info-row__label { font-size:0.72rem; letter-spacing:0.15em; color:#666666; min-width:80px; }
+    .info-row__value { font-size:0.85rem; color:#181818; line-height:1.7; }
+    .access-map { background:#F4F4F2; aspect-ratio:4/3; overflow:hidden; }
+    .access-map iframe { width:100%; height:100%; border:none; filter:grayscale(0.5); }
+    .faq-section { border-top:1px solid rgba(24,24,24,0.08); padding-top:60px; }
+    .faq-title { font-family:'Playfair Display',serif; font-size:2rem; font-weight:400; color:#C4897A; margin-bottom:40px; }
+    .faq-item { padding:24px 0; border-bottom:1px solid rgba(24,24,24,0.06); }
+    .faq-q { font-size:0.9rem; color:#181818; margin-bottom:12px; }
+    .faq-a { font-size:0.82rem; color:#666666; line-height:1.8; }
+    .back-link { display:inline-flex; align-items:center; gap:8px; font-size:0.72rem; letter-spacing:0.2em; color:#666666; text-transform:uppercase; text-decoration:none; margin-bottom:48px; transition:color 0.3s; }
+    .back-link:hover { color:#C4897A; }
+    @media(max-width:768px){.access-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body style="background:#FBFBF9;color:#181818;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;">
+
+<header id="header">
+  <div class="header-inner">
+    <a href="../" class="logo">
+      <span class="logo-main">MAISON AURA</span>
+      <span class="logo-sub">beauty salon</span>
+    </a>
+    <a href="../#reservation" class="header-cta">予約する</a>
+  </div>
+</header>
+
+<div class="page-hero">
+  <a href="../" class="back-link">← サロントップへ</a>
+  <p class="page-hero__sub">Access &amp; Info</p>
+  <h1 class="page-hero__title">アクセス</h1>
+</div>
+
+<div class="access-section">
+  <div class="access-grid">
+    <div class="access-info">
+      <h2 class="access-info__title">サロン情報</h2>
+      <div class="info-row"><span class="info-row__label">住所</span><span class="info-row__value">東京都渋谷区道玄坂1-2-3<br>NAMASビル 4F</span></div>
+      <div class="info-row"><span class="info-row__label">電話</span><span class="info-row__value">03-XXXX-XXXX</span></div>
+      <div class="info-row"><span class="info-row__label">営業時間</span><span class="info-row__value">火〜金 11:00 – 20:00<br>土・日・祝 10:00 – 19:00</span></div>
+      <div class="info-row"><span class="info-row__label">定休日</span><span class="info-row__value">月曜日（祝日の場合は翌火曜）</span></div>
+      <div class="info-row"><span class="info-row__label">アクセス</span><span class="info-row__value">渋谷駅 道玄坂口より徒歩5分</span></div>
+      <div class="info-row"><span class="info-row__label">駐車場</span><span class="info-row__value">なし（近隣コインパーキングをご利用ください）</span></div>
+    </div>
+    <div class="access-map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.5!2d139.6984!3d35.6584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b563b00109f%3A0x337328ef7bfbf4fb!2z5riL6LC35Yy6!5e0!3m2!1sja!2sjp!4v1708" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+
+  <div class="faq-section">
+    <h2 class="faq-title">よくある質問</h2>
+    <div class="faq-item">
+      <p class="faq-q">Q. 予約なしでも来店できますか？</p>
+      <p class="faq-a">A. 完全予約制となっております。ご来店前に必ずご予約をお取りください。</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Q. カード払いは可能ですか？</p>
+      <p class="faq-a">A. 現金・各種クレジットカード・PayPay・LINE Payに対応しております。</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Q. 子連れでの来店は可能ですか？</p>
+      <p class="faq-a">A. キッズスペースのご用意はありませんが、お子様連れのご来店は歓迎しております。施術中は安全にお過ごしいただけるよう配慮いたします。</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Q. ブリーチのダメージが心配です。</p>
+      <p class="faq-a">A. カウンセリングにて現在の髪の状態を丁寧に確認し、ダメージを最小化しながら理想の色味に近づけます。無理なご提案はいたしません。</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Q. メンズのお客様も来店できますか？</p>
+      <p class="faq-a">A. もちろんです。性別に関わらず、美しさと向き合いたいすべての方をお迎えしております。</p>
+    </div>
+  </div>
+</div>
+
+<footer style="padding:32px clamp(24px,6vw,80px);border-top:1px solid rgba(24,24,24,0.08);margin-top:60px;background:#FBFBF9;">
+  <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;">
+    <span style="font-size:0.8rem;color:#4A4744;">MAISON AURA beauty salon</span>
+    <p style="font-size:0.72rem;color:#4A4744;">© 2026 MAISON AURA. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

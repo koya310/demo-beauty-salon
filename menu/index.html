@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu | MAISON AURA</title>
+  <meta name="description" content="MAISON AURAのメニューと料金表。カット・カラー・パーマ・トリートメント。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Shippori+Mincho+B1:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .page-hero {
+      padding: clamp(120px, 15vh, 180px) clamp(24px, 6vw, 80px) clamp(60px, 8vh, 100px);
+      max-width: 1200px; margin: 0 auto;
+    }
+    .page-hero__sub { font-size: 0.75rem; letter-spacing: 0.25em; color: #C4897A; text-transform: uppercase; margin-bottom: 20px; }
+    .page-hero__title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 400; color: #181818; margin-bottom: 16px; }
+    .page-hero__desc { color: #666666; font-size: 0.9rem; line-height: 1.8; max-width: 480px; }
+    .menu-section { max-width: 1200px; margin: 0 auto; padding: 0 clamp(24px, 6vw, 80px) clamp(60px, 8vh, 100px); }
+    .menu-category { margin-bottom: 60px; }
+    .menu-category__title { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 400; color: #C4897A; margin-bottom: 32px; padding-bottom: 12px; border-bottom: 1px solid rgba(24,24,24,0.08); }
+    .menu-item { display: grid; grid-template-columns: 1fr auto; gap: 24px; padding: 20px 0; border-bottom: 1px solid rgba(24,24,24,0.06); }
+    .menu-item__name { font-size: 0.95rem; color: #181818; margin-bottom: 4px; }
+    .menu-item__desc { font-size: 0.78rem; color: #666666; line-height: 1.6; }
+    .menu-item__price { font-family: 'Playfair Display', serif; font-size: 1rem; color: #C4897A; white-space: nowrap; padding-top: 2px; }
+    .menu-note { font-size: 0.72rem; color: #4A4744; margin-top: 32px; line-height: 1.8; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; letter-spacing: 0.2em; color: #666666; text-transform: uppercase; text-decoration: none; margin-bottom: 48px; transition: color 0.3s; }
+    .back-link:hover { color: #C4897A; }
+    @media (max-width: 768px) {
+      .menu-item { grid-template-columns: 1fr; gap: 12px; }
+    }
+  </style>
+</head>
+<body style="background:#FBFBF9; color:#181818; font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased;">
+
+<header id="header">
+  <div class="header-inner">
+    <a href="../" class="logo">
+      <span class="logo-main">MAISON AURA</span>
+      <span class="logo-sub">beauty salon</span>
+    </a>
+    <nav>
+      <ul style="display:flex;gap:32px;list-style:none;">
+        <li><a href="../#concept" style="color:#666666;text-decoration:none;font-size:0.78rem;letter-spacing:0.1em;transition:color 0.3s;" onmouseover="this.style.color='#181818'" onmouseout="this.style.color='#666666'">Concept</a></li>
+        <li><a href="../#services" style="color:#666666;text-decoration:none;font-size:0.78rem;letter-spacing:0.1em;transition:color 0.3s;" onmouseover="this.style.color='#181818'" onmouseout="this.style.color='#666666'">Services</a></li>
+        <li><a href="staff/" style="color:#666666;text-decoration:none;font-size:0.78rem;letter-spacing:0.1em;transition:color 0.3s;" onmouseover="this.style.color='#181818'" onmouseout="this.style.color='#666666'">Staff</a></li>
+        <li><a href="../#access" style="color:#666666;text-decoration:none;font-size:0.78rem;letter-spacing:0.1em;transition:color 0.3s;" onmouseover="this.style.color='#181818'" onmouseout="this.style.color='#666666'">Access</a></li>
+      </ul>
+    </nav>
+    <a href="../#reservation" class="header-cta">予約する</a>
+  </div>
+</header>
+
+<div class="page-hero">
+  <a href="../" class="back-link">← サロントップへ</a>
+  <p class="page-hero__sub">Menu &amp; Price</p>
+  <h1 class="page-hero__title">メニュー・料金</h1>
+  <p class="page-hero__desc">すべてのメニューはカウンセリングを含みます。<br>お気軽にご相談ください。</p>
+</div>
+
+<div class="menu-section">
+  <div class="menu-category">
+    <h2 class="menu-category__title">Cut</h2>
+    <div class="menu-item">
+      <div><p class="menu-item__name">カット</p><p class="menu-item__desc">カウンセリング込み。シャンプー・ブロー含む。</p></div>
+      <span class="menu-item__price">¥8,800〜</span>
+    </div>
+    <div class="menu-item">
+      <div><p class="menu-item__name">カット + シャンプー&ブロー</p><p class="menu-item__desc">丁寧なシャンプーマッサージ付き。</p></div>
+      <span class="menu-item__price">¥10,000〜</span>
+    </div>
+  </div>
+
+  <div class="menu-category">
+    <h2 class="menu-category__title">Color</h2>
+    <div class="menu-item">
+      <div><p class="menu-item__name">フルカラー</p><p class="menu-item__desc">根元から毛先まで均一に染める。</p></div>
+      <span class="menu-item__price">¥14,000〜</span>
+    </div>
+    <div class="menu-item">
+      <div><p class="menu-item__name">ハイライト</p><p class="menu-item__desc">透け感・奥行きを演出するフォイルワーク。</p></div>
+      <span class="menu-item__price">¥18,000〜</span>
+    </div>
+    <div class="menu-item">
+      <div><p class="menu-item__name">バレイヤージュ</p><p class="menu-item__desc">自然なグラデーションをハンドペイントで表現。</p></div>
+      <span class="menu-item__price">¥22,000〜</span>
+    </div>
+  </div>
+
+  <div class="menu-category">
+    <h2 class="menu-category__title">Perm</h2>
+    <div class="menu-item">
+      <div><p class="menu-item__name">デジタルパーマ</p><p class="menu-item__desc">形状記憶力の高いウェーブ。スタイリングが楽に。</p></div>
+      <span class="menu-item__price">¥20,000〜</span>
+    </div>
+    <div class="menu-item">
+      <div><p class="menu-item__name">ストレートパーマ</p><p class="menu-item__desc">くせ・うねりをやわらかく整える縮毛矯正。</p></div>
+      <span class="menu-item__price">¥22,000〜</span>
+    </div>
+  </div>
+
+  <div class="menu-category">
+    <h2 class="menu-category__title">Treatment</h2>
+    <div class="menu-item">
+      <div><p class="menu-item__name">ベーシックトリートメント</p><p class="menu-item__desc">日常的なダメージをリペア。</p></div>
+      <span class="menu-item__price">¥4,400〜</span>
+    </div>
+    <div class="menu-item">
+      <div><p class="menu-item__name">プレミアムトリートメント</p><p class="menu-item__desc">集中補修。つや・まとまりを最大化。</p></div>
+      <span class="menu-item__price">¥8,800〜</span>
+    </div>
+  </div>
+
+  <p class="menu-note">
+    ※ 料金はすべて税込表示です。<br>
+    ※ 料金はヘアの長さ・状態により変動する場合があります。カウンセリング時にご確認ください。<br>
+    ※ 初回ご来店の方は初回特典あり（10%割引）。
+  </p>
+</div>
+
+<footer style="padding:32px clamp(24px,6vw,80px);border-top:1px solid rgba(24,24,24,0.08);margin-top:60px;background:#FBFBF9;">
+  <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;">
+    <span style="font-size:0.8rem;color:#4A4744;">MAISON AURA beauty salon</span>
+    <p style="font-size:0.72rem;color:#4A4744;">© 2026 MAISON AURA. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
