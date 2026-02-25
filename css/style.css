@@ -6,6 +6,7 @@
 :root {
   /* Typography */
   --font-serif: 'Playfair Display', Georgia, serif;
+  --font-jp: 'Shippori Mincho B1', 'Noto Serif JP', 'Yu Mincho', 'Hiragino Mincho ProN', serif;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Color Palette */
@@ -419,13 +420,13 @@ header.scrolled .hamburger span { background: var(--text); }
 
 .hero-line em {
   display: block;
-  font-family: var(--font-serif);
-  font-size: clamp(3rem, 8vw, 6.5rem);
-  font-style: italic;
-  font-weight: 400;
-  line-height: 1.05;
+  font-family: var(--font-jp);
+  font-size: clamp(2.8rem, 7.5vw, 6rem);
+  font-style: normal;
+  font-weight: 300;
+  line-height: 1.2;
   color: var(--white);
-  letter-spacing: -0.02em;
+  letter-spacing: 0.08em;
 }
 
 .hero-body {
@@ -485,6 +486,22 @@ header.scrolled .hamburger span { background: var(--text); }
   letter-spacing: 0.18em;
   color: rgba(255,255,255,0.4);
   writing-mode: vertical-rl;
+}
+
+.hero-side-label {
+  position: absolute;
+  top: 50%;
+  left: var(--pad-x);
+  transform: translateY(-50%);
+  z-index: 2;
+  font-family: var(--font-jp);
+  font-size: 0.62rem;
+  font-weight: 300;
+  letter-spacing: 0.35em;
+  color: rgba(255,255,255,0.3);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  pointer-events: none;
 }
 
 /* ============================================================
@@ -620,6 +637,22 @@ header.scrolled .hamburger span { background: var(--text); }
   background: linear-gradient(to right, transparent 70%, var(--bg) 100%);
 }
 
+.concept-vertical-text {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: var(--font-jp);
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.35em;
+  color: rgba(255,255,255,0.35);
+  z-index: 2;
+  pointer-events: none;
+}
+
 .concept-text {
   padding: clamp(60px, 8vw, 100px) clamp(40px, 6vw, 80px);
   display: flex;
@@ -639,17 +672,17 @@ header.scrolled .hamburger span { background: var(--text); }
 .eyebrow-light { color: rgba(255,255,255,0.5); }
 
 .section-title {
-  font-family: var(--font-serif);
-  font-size: clamp(2.2rem, 4vw, 3.2rem);
-  font-weight: 400;
-  line-height: 1.25;
-  letter-spacing: -0.01em;
+  font-family: var(--font-jp);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 300;
+  line-height: 1.55;
+  letter-spacing: 0.06em;
   color: var(--text);
   margin-bottom: 32px;
 }
 
 .section-title em {
-  font-style: italic;
+  font-style: normal;
   color: var(--accent);
 }
 
@@ -659,7 +692,8 @@ header.scrolled .hamburger span { background: var(--text); }
 .body-text {
   font-size: 0.92rem;
   color: var(--text-sub);
-  line-height: 2;
+  line-height: 2.1;
+  letter-spacing: 0.04em;
   margin-bottom: 20px;
 }
 
@@ -779,10 +813,10 @@ header.scrolled .hamburger span { background: var(--text); }
 }
 
 .service-name {
-  font-family: var(--font-serif);
-  font-size: 1.3rem;
+  font-family: var(--font-jp);
+  font-size: 1.25rem;
   font-weight: 400;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.06em;
   margin-bottom: 12px;
   color: var(--text);
 }
@@ -904,18 +938,19 @@ header.scrolled .hamburger span { background: var(--text); }
 }
 
 .quote-text {
-  font-family: var(--font-serif);
-  font-size: clamp(1.5rem, 3.5vw, 2.4rem);
-  font-style: italic;
-  font-weight: 400;
-  line-height: 1.6;
+  font-family: var(--font-jp);
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  font-style: normal;
+  font-weight: 300;
+  line-height: 1.9;
   color: var(--text);
   margin-bottom: 32px;
+  letter-spacing: 0.06em;
 }
 
 .quote-text em {
   color: var(--accent);
-  font-style: italic;
+  font-style: normal;
 }
 
 .quote-cite {
@@ -1005,9 +1040,10 @@ header.scrolled .hamburger span { background: var(--text); }
 }
 
 .team-name {
-  font-family: var(--font-serif);
-  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-family: var(--font-jp);
+  font-size: clamp(1.15rem, 2.5vw, 1.6rem);
   font-weight: 400;
+  letter-spacing: 0.08em;
   color: var(--text);
   margin-bottom: 6px;
 }
@@ -1030,11 +1066,13 @@ header.scrolled .hamburger span { background: var(--text); }
 }
 
 .team-quote {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 0.9rem;
+  font-family: var(--font-jp);
+  font-style: normal;
+  font-size: 0.88rem;
+  font-weight: 300;
   color: var(--text-sub);
-  line-height: 1.9;
+  line-height: 2.1;
+  letter-spacing: 0.03em;
 }
 
 /* ============================================================
@@ -1078,10 +1116,12 @@ header.scrolled .hamburger span { background: var(--text); }
 }
 
 .review-text {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 1rem;
-  line-height: 1.9;
+  font-family: var(--font-jp);
+  font-style: normal;
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 2.1;
+  letter-spacing: 0.03em;
   color: rgba(255,255,255,0.75);
   margin-bottom: 28px;
 }
@@ -1181,17 +1221,17 @@ header.scrolled .hamburger span { background: var(--text); }
 }
 
 .reservation-title {
-  font-family: var(--font-serif);
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 400;
-  line-height: 1.3;
+  font-family: var(--font-jp);
+  font-size: clamp(1.9rem, 4.5vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1.7;
   color: var(--text-light);
   margin: 20px 0 28px;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.07em;
 }
 
 .reservation-title em {
-  font-style: italic;
+  font-style: normal;
   color: var(--accent);
 }
 
@@ -1431,10 +1471,11 @@ header.scrolled .hamburger span { background: var(--text); }
   }
 
   nav a {
-    font-family: var(--font-serif);
-    font-size: 2rem;
-    font-style: italic;
-    letter-spacing: 0.05em;
+    font-family: var(--font-jp);
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 300;
+    letter-spacing: 0.1em;
     color: var(--text-light) !important;
   }
 
@@ -1478,8 +1519,10 @@ header.scrolled .hamburger span { background: var(--text); }
     --gap-2xl: 80px;
   }
 
-  .hero-line em { letter-spacing: -0.01em; }
+  .hero-line em { font-size: clamp(2.4rem, 12vw, 4rem); letter-spacing: 0.05em; }
   .hero-actions { flex-direction: column; align-items: flex-start; }
+  .hero-side-label { display: none; }
+  .concept-vertical-text { display: none; }
 
   .services-grid { grid-template-columns: 1fr; background: none; border: none; gap: 1px; }
 
