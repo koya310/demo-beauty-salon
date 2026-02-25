@@ -426,7 +426,7 @@ header.scrolled .hamburger span { background: var(--text); }
   font-weight: 300;
   line-height: 1.2;
   color: var(--white);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
 }
 
 .hero-body {
@@ -692,8 +692,8 @@ header.scrolled .hamburger span { background: var(--text); }
 .body-text {
   font-size: 0.92rem;
   color: var(--text-sub);
-  line-height: 2.1;
-  letter-spacing: 0.04em;
+  line-height: 2.2;
+  letter-spacing: 0.05em;
   margin-bottom: 20px;
 }
 
@@ -766,7 +766,6 @@ header.scrolled .hamburger span { background: var(--text); }
 .service-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 56vh;
   border-bottom: 1px solid var(--border);
   overflow: hidden;
 }
@@ -785,12 +784,12 @@ header.scrolled .hamburger span { background: var(--text); }
   height: 100%;
   object-fit: cover;
   transition: transform 1.2s var(--ease-out);
-  filter: brightness(0.9) saturate(0.72);
+  filter: brightness(0.88) saturate(0.70) sepia(8%);
 }
 
 .service-row:hover .service-row-img img {
   transform: scale(1.05);
-  filter: brightness(0.95) saturate(0.85);
+  filter: brightness(0.93) saturate(0.82) sepia(4%);
 }
 
 .service-row-num {
@@ -812,7 +811,7 @@ header.scrolled .hamburger span { background: var(--text); }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: var(--gap-xl) clamp(40px, 6vw, 88px);
+  padding: clamp(60px, 10vw, 120px) clamp(40px, 6vw, 88px);
   background: var(--bg);
 }
 
@@ -840,8 +839,8 @@ header.scrolled .hamburger span { background: var(--text); }
 .service-row-desc {
   font-size: 0.875rem;
   color: var(--text-sub);
-  line-height: 2.1;
-  letter-spacing: 0.04em;
+  line-height: 2.2;
+  letter-spacing: 0.05em;
   max-width: 360px;
   margin-bottom: 36px;
 }
@@ -904,12 +903,12 @@ header.scrolled .hamburger span { background: var(--text); }
   height: 100%;
   object-fit: cover;
   transition: transform 0.9s var(--ease-out), filter 0.9s var(--ease-out);
-  filter: brightness(0.97) saturate(0.88);
+  filter: brightness(0.92) saturate(0.78) sepia(8%);
 }
 
 .gallery-item:hover img {
   transform: scale(1.08);
-  filter: brightness(1.05) saturate(1);
+  filter: brightness(0.98) saturate(0.90) sepia(4%);
 }
 
 .gallery-caption {
@@ -944,10 +943,8 @@ header.scrolled .hamburger span { background: var(--text); }
    QUOTE
    ============================================================ */
 .quote-section {
-  background: var(--bg);
+  background: var(--bg-alt);
   padding: var(--gap-2xl) var(--pad-x);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
 }
 
 .quote-inner {
