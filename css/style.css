@@ -70,6 +70,8 @@ body {
   line-height: 1.7;
   overflow-x: hidden;
   cursor: none;
+  font-feature-settings: "palt" 1, "pkna" 1;
+  text-rendering: optimizeLegibility;
 }
 
 body:not(.loaded) { overflow: hidden; }
@@ -421,10 +423,11 @@ header.scrolled .hamburger span { background: var(--text); }
 .hero-line {
   display: block;
   overflow: hidden;
+  padding-bottom: 0.1em;
 }
 
 .hero-line em {
-  display: block;
+  display: inline-block;
   font-family: var(--font-jp);
   font-size: clamp(2.8rem, 7.5vw, 6rem);
   font-style: normal;
@@ -432,6 +435,19 @@ header.scrolled .hamburger span { background: var(--text); }
   line-height: 1.2;
   color: var(--white);
   letter-spacing: 0.05em;
+  font-feature-settings: "palt" 1;
+  /* 初期状態: 深く沈み、わずかに傾く */
+  transform: translateY(110%) rotate(3deg);
+  transform-origin: top left;
+  opacity: 0;
+  transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 1s ease;
+  transition-delay: var(--delay, 0s);
+  will-change: transform, opacity;
+}
+
+.hero-line.revealed em {
+  transform: translateY(0) rotate(0deg);
+  opacity: 1;
 }
 
 .hero-body {
@@ -634,11 +650,8 @@ header.scrolled .hamburger span { background: var(--text); }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.8s var(--ease-out);
-}
-
-.concept-media:hover .concept-img {
-  transform: scale(1.04);
+  /* transform managed by Lerp JS — no CSS transition here */
+  will-change: transform;
 }
 
 .concept-img-overlay {
@@ -690,6 +703,7 @@ header.scrolled .hamburger span { background: var(--text); }
   letter-spacing: 0.08em;
   color: var(--text);
   margin-bottom: 40px;
+  font-feature-settings: "palt" 1;
 }
 
 .section-title em {
@@ -701,12 +715,17 @@ header.scrolled .hamburger span { background: var(--text); }
 .section-title-light em { color: rgba(255,255,255,0.7); }
 
 .body-text {
+  font-family: var(--font-jp);
   font-size: 0.9rem;
-  color: var(--text-sub);
+  font-weight: 400;
+  color: #4a4a4a;
   line-height: 2.4;
   letter-spacing: 0.06em;
   margin-bottom: 20px;
   max-width: 420px;
+  text-align: justify;
+  text-justify: inter-ideograph;
+  font-feature-settings: "palt" 1;
 }
 
 /* ============================================================
@@ -779,7 +798,6 @@ header.scrolled .hamburger span { background: var(--text); }
   display: grid;
   grid-template-columns: 1fr 1fr;
   border-bottom: 1px solid var(--border);
-  overflow: hidden;
 }
 
 .service-row:last-child {
@@ -1590,6 +1608,79 @@ header.scrolled .hamburger span { background: var(--text); }
   .reservation-actions { flex-direction: column; align-items: center; }
 
   .access-inner { gap: var(--gap-lg); }
+}
+
+/* ============================================================
+   DESKTOP: EDITORIAL STICKY SERVICE LAYOUT
+   ============================================================ */
+@media (min-width: 1025px) {
+  .service-row {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--gap-xl);
+    border: none;
+    margin-bottom: var(--gap-2xl);
+    position: relative;
+  }
+
+  .service-row:last-child {
+    margin-bottom: 0;
+  }
+
+  /* 区切り線を代わりに行間の余白で表現 */
+  .service-row + .service-row {
+    padding-top: var(--gap-2xl);
+    border-top: 1px solid var(--border);
+  }
+
+  .service-row-img {
+    width: 48%;
+    flex-shrink: 0;
+    position: sticky;
+    top: 120px;
+    height: 70vh;
+    overflow: hidden;
+  }
+
+  .service-row-body {
+    width: 52%;
+    padding: clamp(60px, 10vh, 120px) 0;
+    background: transparent;
+  }
+
+  /* 数字を背景アートとして大きく表示 */
+  .service-row-num {
+    position: absolute;
+    top: -30px;
+    left: -15px;
+    font-size: clamp(8rem, 12vw, 13rem);
+    color: var(--bg-alt);
+    z-index: -1;
+    mix-blend-mode: multiply;
+    bottom: auto;
+  }
+
+  .service-row.reverse .service-row-img {
+    order: 2;
+  }
+  .service-row.reverse .service-row-body {
+    order: 1;
+  }
+}
+
+/* ============================================================
+   MAGNET BUTTON — HOVER TRANSITION
+   ============================================================ */
+.btn-primary,
+.btn-outline,
+.header-cta {
+  will-change: transform;
+}
+
+.btn-primary:not(:hover),
+.btn-outline:not(:hover),
+.header-cta:not(:hover) {
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), background 0.3s, color 0.3s, border-color 0.3s;
 }
 
 /* ============================================================

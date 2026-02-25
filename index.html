@@ -68,9 +68,9 @@
   <div class="hero-content">
     <p class="hero-eyebrow" data-reveal>SHIBUYA DOGENZAKA</p>
     <h1 class="hero-title">
-      <span class="hero-line" data-reveal-line><em>内に秘めた</em></span>
-      <span class="hero-line" data-reveal-line><em>光を、</em></span>
-      <span class="hero-line" data-reveal-line><em>解き放つ。</em></span>
+      <span class="hero-line"><em>内に秘めた</em></span>
+      <span class="hero-line"><em>光を、</em></span>
+      <span class="hero-line"><em>解き放つ。</em></span>
     </h1>
     <p class="hero-body" data-reveal>渋谷、静寂の隠れ家で — 自分だけの美しさと向き合う時間</p>
     <div class="hero-actions" data-reveal>
@@ -185,7 +185,7 @@
     <!-- 01 カット -->
     <div class="service-row" data-reveal>
       <div class="service-row-img">
-        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=900&q=85&auto=format&fit=crop" alt="カット" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1657105052497-f996284ffff8?w=900&q=85&auto=format&fit=crop" alt="カット" loading="lazy">
         <div class="service-row-num">01</div>
       </div>
       <div class="service-row-body">
@@ -236,7 +236,7 @@
     <!-- 04 トリートメント -->
     <div class="service-row reverse" data-reveal>
       <div class="service-row-img">
-        <img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?w=900&q=85&auto=format&fit=crop" alt="トリートメント" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1567721913486-6585f069b332?w=900&q=85&auto=format&fit=crop" alt="トリートメント" loading="lazy">
         <div class="service-row-num">04</div>
       </div>
       <div class="service-row-body">
@@ -536,13 +536,13 @@
 
 <script>
 /* ============================================================
-   MAISON AURA — Main JavaScript
+   MAISON AURA — Main JavaScript  v8
    ============================================================ */
 
 (function() {
   'use strict';
 
-  /* ---- Loader ---- */
+  /* ---- Loader + Hero Entrance Animation ---- */
   const loader = document.getElementById('loader');
   const letters = loader.querySelectorAll('.loader-letter');
 
@@ -554,6 +554,21 @@
     setTimeout(() => {
       loader.classList.add('hidden');
       document.body.classList.add('loaded');
+
+      // Hero entrance: rotation slide-up per line
+      const heroLines = document.querySelectorAll('.hero-line');
+      heroLines.forEach((line, index) => {
+        line.style.setProperty('--delay', `${0.3 + index * 0.18}s`);
+        requestAnimationFrame(() => {
+          setTimeout(() => line.classList.add('revealed'), 50);
+        });
+      });
+
+      // Hero eyebrow + body + actions reveal
+      document.querySelectorAll('.hero-content [data-reveal]').forEach((el, i) => {
+        setTimeout(() => el.classList.add('revealed'), 900 + i * 150);
+      });
+
     }, 1200);
   });
 
@@ -609,7 +624,7 @@
     nav.classList.toggle('open');
   });
 
-  /* ---- Hero Parallax ---- */
+  /* ---- Hero Parallax (rAF-based) ---- */
   const heroImg = document.getElementById('heroImg');
   let ticking = false;
   window.addEventListener('scroll', () => {
@@ -625,6 +640,31 @@
     }
   }, { passive: true });
 
+  /* ---- Lerp Parallax for Concept image ---- */
+  const conceptImgWrap = document.getElementById('conceptImgWrap');
+  const conceptImg = conceptImgWrap ? conceptImgWrap.querySelector('.concept-img') : null;
+
+  if (conceptImg) {
+    let lerpCurrent = 0;
+    let lerpTarget = 0;
+
+    function lerpParallax() {
+      const rect = conceptImgWrap.getBoundingClientRect();
+      const viewH = window.innerHeight;
+
+      // Only animate when section is in view
+      if (rect.bottom > 0 && rect.top < viewH) {
+        const progress = (viewH - rect.top) / (viewH + rect.height);
+        lerpTarget = (progress - 0.5) * 60; // ±30px range
+      }
+
+      lerpCurrent += (lerpTarget - lerpCurrent) * 0.08;
+      conceptImg.style.transform = `translateY(${lerpCurrent.toFixed(2)}px) scale(1.12)`;
+      requestAnimationFrame(lerpParallax);
+    }
+    lerpParallax();
+  }
+
   /* ---- Ticker ---- */
   const ticker = document.querySelector('.ticker-track');
   let tickerPos = 0;
@@ -638,7 +678,7 @@
   animateTicker();
 
   /* ---- Scroll Reveal (Intersection Observer) ---- */
-  const revealEls = document.querySelectorAll('[data-reveal], [data-reveal-line]');
+  const revealEls = document.querySelectorAll('[data-reveal]');
 
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -681,7 +721,23 @@
 
   counterEls.forEach(el => counterObserver.observe(el));
 
-  /* ---- Service row image subtle zoom on hover (handled in CSS) ---- */
+  /* ---- Magnet Button Effect ---- */
+  const magnetBtns = document.querySelectorAll('.btn-primary, .btn-outline, .header-cta');
+
+  magnetBtns.forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dx = (e.clientX - cx) * 0.35;
+      const dy = (e.clientY - cy) * 0.35;
+      btn.style.transform = `translate(${dx}px, ${dy}px)`;
+    });
+
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = 'translate(0px, 0px)';
+    });
+  });
 
   /* ---- Smooth scroll for anchors ---- */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
