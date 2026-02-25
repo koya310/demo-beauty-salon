@@ -615,7 +615,7 @@ header.scrolled .hamburger span { background: var(--text); }
   display: inline-flex;
   align-items: center;
   gap: 32px;
-  will-change: transform;
+  animation: tickerScroll 30s linear infinite;
 }
 
 .ticker-track span {
@@ -1700,3 +1700,9 @@ header.scrolled .hamburger span { background: var(--text); }
     clip-path: none !important;
   }
 }
+
+@keyframes tickerScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
