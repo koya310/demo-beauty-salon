@@ -219,7 +219,7 @@
     <!-- 03 パーマ -->
     <div class="service-row" data-reveal>
       <div class="service-row-img">
-        <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=900&q=85&auto=format&fit=crop" alt="パーマ" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=900&q=85&auto=format&fit=crop" alt="パーマ" loading="lazy">
         <div class="service-row-num">03</div>
       </div>
       <div class="service-row-body">
@@ -273,7 +273,7 @@
       <div class="gallery-caption"><span>Style 03</span></div>
     </div>
     <div class="gallery-item tall" data-reveal style="--delay:0.1s">
-      <img src="https://images.unsplash.com/photo-1519415943484-9fa1873496d4?w=800&q=90&auto=format&fit=crop" alt="style 04" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=800&q=90&auto=format&fit=crop" alt="style 04" loading="lazy">
       <div class="gallery-caption"><span>Style 04</span></div>
     </div>
     <div class="gallery-item" data-reveal style="--delay:0.3s">
@@ -721,23 +721,7 @@
 
   counterEls.forEach(el => counterObserver.observe(el));
 
-  /* ---- Magnet Button Effect ---- */
-  const magnetBtns = document.querySelectorAll('.btn-primary, .btn-outline, .header-cta');
-
-  magnetBtns.forEach(btn => {
-    btn.addEventListener('mousemove', (e) => {
-      const rect = btn.getBoundingClientRect();
-      const cx = rect.left + rect.width / 2;
-      const cy = rect.top + rect.height / 2;
-      const dx = (e.clientX - cx) * 0.35;
-      const dy = (e.clientY - cy) * 0.35;
-      btn.style.transform = `translate(${dx}px, ${dy}px)`;
-    });
-
-    btn.addEventListener('mouseleave', () => {
-      btn.style.transform = 'translate(0px, 0px)';
-    });
-  });
+  /* ---- Button hover handled in CSS (translateY lift) ---- */
 
   /* ---- Smooth scroll for anchors ---- */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {

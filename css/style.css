@@ -1669,18 +1669,19 @@ header.scrolled .hamburger span { background: var(--text); }
 }
 
 /* ============================================================
-   MAGNET BUTTON — HOVER TRANSITION
+   BUTTON HOVER — SIMPLE LIFT
    ============================================================ */
 .btn-primary,
 .btn-outline,
 .header-cta {
-  will-change: transform;
+  transition: transform 0.3s var(--ease-out), background 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
-.btn-primary:not(:hover),
-.btn-outline:not(:hover),
-.header-cta:not(:hover) {
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), background 0.3s, color 0.3s, border-color 0.3s;
+.btn-primary:hover,
+.btn-outline:hover,
+.header-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 /* ============================================================
