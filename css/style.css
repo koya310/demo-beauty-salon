@@ -388,7 +388,7 @@ header.scrolled .hamburger span { background: var(--text); }
   object-fit: cover;
   transform: scale(1.08);
   will-change: transform;
-  filter: brightness(0.82) saturate(0.9);
+  filter: grayscale(1) brightness(0.78);
 }
 
 .hero-vignette {
@@ -408,7 +408,7 @@ header.scrolled .hamburger span { background: var(--text); }
 .hero-eyebrow {
   font-size: 0.65rem;
   letter-spacing: 0.3em;
-  color: rgba(255,255,255,0.6);
+  color: #C4897A;
   margin-bottom: 20px;
   text-transform: uppercase;
 }
@@ -543,6 +543,14 @@ header.scrolled .hamburger span { background: var(--text); }
 .btn-primary:hover {
   background: var(--accent-dark);
   transform: translateY(-1px);
+}
+
+/* ── Hero内のみ: テラコッタアクセントで1色POP ── */
+.hero .btn-primary {
+  background: #C4897A;
+}
+.hero .btn-primary:hover {
+  background: #AE7468;
 }
 
 .btn-ghost {
