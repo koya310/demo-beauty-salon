@@ -189,7 +189,7 @@ vercel --prod
 
 ## 連絡先
 
-**制作者**: koya@irohani.tech  
+**制作者**: support@irohani.tech  
 **プロジェクト**: AI活用受託事業 - ポートフォリオ  
 **対応**: ポートフォリオ完成のため、実装変更は別途相談
 

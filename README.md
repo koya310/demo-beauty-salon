@@ -91,7 +91,7 @@ beauty-salon-lp/
 ## 制作
 
 **AI活用受託事業ポートフォリオ**  
-制作者: koya@irohani.tech  
+制作者: support@irohani.tech  
 制作日: 2026年2月24日
 
 ---
