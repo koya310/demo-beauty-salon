@@ -10,27 +10,31 @@
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Color Palette */
-  --bg:          #FAFAF8;
-  --bg-alt:      #F2F1ED;
+  --bg:          #FBFBF9;
+  --bg-alt:      #F4F4F2;
   --bg-dark:     #141414;
   --bg-darker:   #0D0D0D;
-  --text:        #1A1A1A;
-  --text-sub:    #6B6B6B;
+  --text:        #181818;
+  --text-sub:    #666666;
   --text-muted:  #9A9A9A;
   --text-light:  #F5F5F3;
-  --accent:      #9B8B6E;
+  --accent:      #948464;
   --accent-dark: #7A6B52;
   --accent-pale: #EDE7DC;
-  --border:      #E4E3DE;
+  --border:      rgba(0, 0, 0, 0.1);
   --white:       #FFFFFF;
+
+  /* Image Filters */
+  --filter-img:       brightness(0.88) saturate(0.72) sepia(8%);
+  --filter-img-hover: brightness(0.95) saturate(0.88) sepia(3%);
 
   /* Spacing */
   --gap-xs: 8px;
   --gap-sm: 16px;
   --gap-md: 24px;
   --gap-lg: 48px;
-  --gap-xl: 80px;
-  --gap-2xl: 120px;
+  --gap-xl: 90px;
+  --gap-2xl: 160px;
 
   /* Easing */
   --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -282,8 +286,9 @@ header.scrolled nav a:hover { color: var(--text); }
   letter-spacing: 0.12em;
   color: var(--accent);
   border: 1px solid var(--accent);
-  padding: 8px 20px;
-  transition: all 0.3s var(--ease);
+  padding: 8px 22px;
+  border-radius: 30px;
+  transition: all 0.4s var(--ease);
   white-space: nowrap;
 }
 
@@ -567,11 +572,16 @@ header.scrolled .hamburger span { background: var(--text); }
   font-size: 0.75rem;
   letter-spacing: 0.12em;
   color: var(--accent);
-  transition: gap 0.3s var(--ease);
   margin-top: 8px;
 }
 
-.link-arrow:hover { gap: 20px; }
+.link-arrow svg {
+  transition: transform 0.4s var(--ease);
+}
+
+.link-arrow:hover svg {
+  transform: translateX(6px);
+}
 
 /* ============================================================
    TICKER
@@ -654,7 +664,7 @@ header.scrolled .hamburger span { background: var(--text); }
 }
 
 .concept-text {
-  padding: clamp(60px, 8vw, 100px) clamp(40px, 6vw, 80px);
+  padding: clamp(80px, 10vw, 160px) clamp(50px, 8vw, 120px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -662,11 +672,12 @@ header.scrolled .hamburger span { background: var(--text); }
 }
 
 .eyebrow {
-  font-size: 0.68rem;
-  letter-spacing: 0.25em;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
   color: var(--accent);
   margin-bottom: 24px;
   text-transform: uppercase;
+  font-weight: 500;
 }
 
 .eyebrow-light { color: rgba(255,255,255,0.5); }
@@ -675,10 +686,10 @@ header.scrolled .hamburger span { background: var(--text); }
   font-family: var(--font-jp);
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 300;
-  line-height: 1.55;
-  letter-spacing: 0.06em;
+  line-height: 1.7;
+  letter-spacing: 0.08em;
   color: var(--text);
-  margin-bottom: 32px;
+  margin-bottom: 40px;
 }
 
 .section-title em {
@@ -690,11 +701,12 @@ header.scrolled .hamburger span { background: var(--text); }
 .section-title-light em { color: rgba(255,255,255,0.7); }
 
 .body-text {
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   color: var(--text-sub);
-  line-height: 2.2;
-  letter-spacing: 0.05em;
+  line-height: 2.4;
+  letter-spacing: 0.06em;
   margin-bottom: 20px;
+  max-width: 420px;
 }
 
 /* ============================================================
@@ -783,13 +795,13 @@ header.scrolled .hamburger span { background: var(--text); }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 1.2s var(--ease-out);
-  filter: brightness(0.88) saturate(0.70) sepia(8%);
+  transition: transform 1.2s var(--ease-out), filter 1.2s var(--ease-out);
+  filter: var(--filter-img);
 }
 
 .service-row:hover .service-row-img img {
   transform: scale(1.05);
-  filter: brightness(0.93) saturate(0.82) sepia(4%);
+  filter: var(--filter-img-hover);
 }
 
 .service-row-num {
@@ -903,12 +915,12 @@ header.scrolled .hamburger span { background: var(--text); }
   height: 100%;
   object-fit: cover;
   transition: transform 0.9s var(--ease-out), filter 0.9s var(--ease-out);
-  filter: brightness(0.92) saturate(0.78) sepia(8%);
+  filter: var(--filter-img);
 }
 
 .gallery-item:hover img {
   transform: scale(1.08);
-  filter: brightness(0.98) saturate(0.90) sepia(4%);
+  filter: var(--filter-img-hover);
 }
 
 .gallery-caption {
@@ -1126,9 +1138,9 @@ header.scrolled .hamburger span { background: var(--text); }
 
 .review-stars {
   color: var(--accent);
-  letter-spacing: 0.1em;
-  font-size: 0.9rem;
-  margin-bottom: 20px;
+  letter-spacing: 0.2em;
+  font-size: 0.8rem;
+  margin-bottom: 24px;
 }
 
 .review-text {
@@ -1140,6 +1152,19 @@ header.scrolled .hamburger span { background: var(--text); }
   letter-spacing: 0.03em;
   color: rgba(255,255,255,0.75);
   margin-bottom: 28px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.review-text::before {
+  content: '\201C';
+  position: absolute;
+  left: 0;
+  top: -12px;
+  font-family: var(--font-serif);
+  font-size: 3.5rem;
+  color: rgba(255, 255, 255, 0.1);
+  line-height: 1;
 }
 
 .reviewer {
