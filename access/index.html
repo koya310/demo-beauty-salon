@@ -3,176 +3,305 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Access & Hours | MAISON AURA</title>
-  <meta name="description" content="MAISON AURAへのアクセス・営業時間。渋谷駅徒歩5分。完全予約制。">
+  <title>Access | MAISON AURA | 渋谷の美容室</title>
+  <meta name="description" content="MAISON AURA へのアクセス。渋谷駅より徒歩7分、道玄坂。完全予約制の美容室。">
+  <meta property="og:title" content="Access | MAISON AURA">
+  <meta property="og:description" content="渋谷・道玄坂の美容室 MAISON AURA へのアクセスと営業時間">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Shippori+Mincho+B1:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Shippori+Mincho+B1:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
   <style>
-    .page-hero {
-      padding: clamp(120px, 15vh, 180px) clamp(24px, 6vw, 80px) clamp(60px, 8vh, 100px);
-      max-width: 1200px; margin: 0 auto;
+    .access-hero {
+      min-height: 50vh;
+      background: var(--bg-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--gap-xl) var(--pad-x);
     }
-    .page-hero__sub { font-size: 0.75rem; letter-spacing: 0.25em; color: #C4897A; text-transform: uppercase; margin-bottom: 20px; }
-    .page-hero__title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 400; color: #181818; margin-bottom: 16px; }
-    .page-hero__desc { color: #666666; font-size: 0.9rem; line-height: 1.8; max-width: 480px; }
-    .back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; letter-spacing: 0.2em; color: #666666; text-transform: uppercase; text-decoration: none; margin-bottom: 48px; transition: color 0.3s; }
-    .back-link:hover { color: #C4897A; }
 
-    .access-section { max-width: 1200px; margin: 0 auto; padding: 0 clamp(24px,6vw,80px) clamp(60px,8vh,100px); }
-    .access-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 48px; margin-top: 48px; }
-    .access-map iframe { width: 100%; height: 400px; display: block; border: none; }
-    .access-info { padding: 32px 0; }
-    .access-info__row { display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(24,24,24,0.06); font-size: 0.88rem; }
-    .access-info__label { color: #C4897A; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; min-width: 80px; padding-top: 2px; }
+    .access-hero h1 {
+      font-family: var(--font-jp);
+      font-size: clamp(40px, 5vw, 80px);
+      font-weight: 300;
+      color: var(--text-light);
+      margin-bottom: 16px;
+      letter-spacing: 0.08em;
+    }
 
-    .hours-section { max-width: 1200px; margin: 0 auto; padding: 0 clamp(24px,6vw,80px) clamp(60px,8vh,100px); }
-    .hours-table { width: 100%; border-collapse: collapse; margin-top: 32px; font-size: 0.88rem; }
-    .hours-table th, .hours-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid rgba(24,24,24,0.06); }
-    .hours-table th { color: #C4897A; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 400; }
+    .access-hero p {
+      font-family: var(--font-jp);
+      font-size: clamp(18px, 2.5vw, 24px);
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
 
-    .faq-section { max-width: 1200px; margin: 0 auto; padding: 0 clamp(24px,6vw,80px) clamp(60px,8vh,100px); }
-    .faq-section__title { font-family: 'Playfair Display',serif; font-size: 1.5rem; font-weight: 400; color: #181818; margin-bottom: 40px; }
-    .faq-item { padding: 24px 0; border-bottom: 1px solid rgba(24,24,24,0.08); }
-    .faq-item__q { font-size: 0.9rem; color: #181818; margin-bottom: 12px; display: flex; gap: 12px; align-items: flex-start; }
-    .faq-item__q::before { content: 'Q.'; color: #C4897A; font-size: 0.72rem; letter-spacing: 0.1em; flex-shrink: 0; padding-top: 2px; }
-    .faq-item__a { font-size: 0.83rem; color: #666666; line-height: 1.8; padding-left: 24px; }
+    .access-section {
+      padding: var(--gap-2xl) var(--pad-x);
+      background: var(--bg);
+    }
 
-    footer { background: #181818; color: #FBFBF9; padding: 40px clamp(24px,6vw,80px); display: flex; justify-content: space-between; align-items: center; margin-top: 80px; }
-    footer a { color: #C4897A; text-decoration: none; font-size: 0.78rem; letter-spacing: 0.1em; }
-    .footer-copy { font-size: 0.7rem; color: rgba(251,251,249,0.4); letter-spacing: 0.05em; }
+    .access-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: var(--gap-xl);
+      align-items: center;
+    }
+
+    .access-info h2 {
+      font-family: var(--font-jp);
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-weight: 300;
+      color: var(--text);
+      margin-bottom: 32px;
+      letter-spacing: 0.08em;
+    }
+
+    .access-info-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .access-info-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .access-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      color: var(--accent);
+      margin-top: 2px;
+    }
+
+    .access-info-item p {
+      font-size: 0.95rem;
+      color: var(--text-sub);
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .access-info-item strong {
+      font-weight: 500;
+      color: var(--text);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .access-map {
+      position: relative;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .access-map img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(60%) brightness(0.9);
+    }
+
+    .access-map-pin {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -60%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .access-map-pin svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .access-map-pin span {
+      background: var(--bg);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      padding: 4px 10px;
+      border: 1px solid var(--border);
+      white-space: nowrap;
+      color: var(--text);
+    }
+
+    @media (max-width: 1024px) {
+      .access-inner {
+        grid-template-columns: 1fr;
+      }
+    }
 
     @media (max-width: 768px) {
-      .access-grid { grid-template-columns: 1fr; }
-      .access-map iframe { height: 300px; }
-      footer { flex-direction: column; gap: 16px; text-align: center; }
+      .access-info-item {
+        gap: 12px;
+      }
+
+      .access-map {
+        aspect-ratio: 4/3;
+      }
     }
   </style>
 </head>
-<body style="background:#FBFBF9; color:#181818; font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased;">
+<body>
 
+<!-- ヘッダー -->
 <header id="header">
   <div class="header-inner">
     <a href="../" class="logo">
       <span class="logo-main">MAISON AURA</span>
       <span class="logo-sub">beauty salon</span>
     </a>
-    <nav>
-      <ul style="display:flex;gap:32px;list-style:none;">
-        <li><a href="../#concept" style="color:#666666;text-decoration:none;font-size:0.78rem;letter-spacing:0.1em;transition:color 0.3s;" onmouseover="this.style.color='#181818'" onmouseout="this.style.color='#666666'">Concept</a></li>
-        <li><a href="../#services" style="color:#666666;text-decoration:none;font-size:0.78rem;letter-spacing:0.1em;transition:color 0.3s;" onmouseover="this.style.color='#181818'" onmouseout="this.style.color='#666666'">Services</a></li>
-        <li><a href="menu/" style="color:#666666;text-decoration:none;font-size:0.78rem;letter-spacing:0.1em;transition:color 0.3s;" onmouseover="this.style.color='#181818'" onmouseout="this.style.color='#666666'">Menu</a></li>
-        <li><a href="staff/" style="color:#666666;text-decoration:none;font-size:0.78rem;letter-spacing:0.1em;transition:color 0.3s;" onmouseover="this.style.color='#181818'" onmouseout="this.style.color='#666666'">Staff</a></li>
-        <li><a href="gallery/" style="color:#666666;text-decoration:none;font-size:0.78rem;letter-spacing:0.1em;transition:color 0.3s;" onmouseover="this.style.color='#181818'" onmouseout="this.style.color='#666666'">Gallery</a></li>
-        <li><a href="access/" style="color:#C4897A;text-decoration:none;font-size:0.78rem;letter-spacing:0.1em;transition:color 0.3s;" onmouseover="this.style.color='#181818'" onmouseout="this.style.color='#C4897A'">Access</a></li>
+    <nav id="nav">
+      <ul>
+        <li><a href="../#concept">Concept</a></li>
+        <li><a href="../#services">Services</a></li>
+        <li><a href="../#gallery">Gallery</a></li>
+        <li><a href="../#team">Team</a></li>
+        <li><a href="../menu">Menu</a></li>
+        <li><a href="../access">Access</a></li>
       </ul>
     </nav>
     <a href="../#reservation" class="header-cta">予約する</a>
+    <button class="hamburger" id="hamburger" aria-label="メニュー">
+      <span></span><span></span>
+    </button>
   </div>
 </header>
 
-<div class="page-hero">
-  <a href="../" class="back-link">← サロントップへ</a>
-  <p class="page-hero__sub">Access &amp; Hours</p>
-  <h1 class="page-hero__title">アクセス・営業時間</h1>
-  <p class="page-hero__desc">完全予約制。ご予約はお電話またはLINEにて承っております。</p>
-</div>
-
-<div class="access-section">
-  <div style="margin-bottom:32px; overflow:hidden;">
-    <img src="../images/salon_exterior.jpg" alt="MAISON AURA 外観" style="width:100%; height:300px; object-fit:cover; display:block;">
+<!-- Page Hero -->
+<section class="access-hero">
+  <div>
+    <h1>Access</h1>
+    <p>アクセス</p>
   </div>
-  <div class="access-grid">
-    <div class="access-map">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.7!2d139.698!3d35.658!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
+</section>
+
+<!-- Access Info -->
+<section class="access-section">
+  <div class="access-inner">
     <div class="access-info">
-      <div class="access-info__row">
-        <span class="access-info__label">住所</span>
-        <div>
-          <p style="margin:0; font-size:0.88rem; color:#181818;">〒150-0043</p>
-          <p style="margin:0; font-size:0.88rem; color:#181818;">東京都渋谷区道玄坂2-10-1</p>
-          <p style="margin:4px 0 0 0; font-size:0.78rem; color:#666666;">(渋谷駅徒歩5分)</p>
-        </div>
-      </div>
-      <div class="access-info__row">
-        <span class="access-info__label">電話</span>
-        <p style="margin:0; font-size:0.88rem; color:#181818;">03-1234-5678</p>
-      </div>
-      <div class="access-info__row">
-        <span class="access-info__label">最寄駅</span>
-        <div>
-          <p style="margin:0; font-size:0.88rem; color:#181818;">渋谷駅（JR・東急・東京メトロ）</p>
-          <p style="margin:4px 0 0 0; font-size:0.78rem; color:#666666;">南口より徒歩5分</p>
-        </div>
+      <h2>渋谷・道玄坂</h2>
+      <ul class="access-info-list">
+        <li class="access-info-item">
+          <svg class="access-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <div>
+            <strong>住所</strong>
+            <p>〒150-0043 東京都渋谷区道玄坂2-10-12<br>新大宗ビル4F</p>
+          </div>
+        </li>
+        <li class="access-info-item">
+          <svg class="access-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          <div>
+            <strong>最寄駅</strong>
+            <p>JR・東急・東京メトロ 渋谷駅<br>東口より徒歩7分</p>
+          </div>
+        </li>
+        <li class="access-info-item">
+          <svg class="access-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          <div>
+            <strong>営業時間</strong>
+            <p>月～日 10:00～20:00<br>（最終受付 19:00）<br>定休日：不定休</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="access-map">
+      <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&q=80&auto=format&fit=crop" alt="東京渋谷マップ">
+      <div class="access-map-pin">
+        <svg viewBox="0 0 24 32" fill="none">
+          <path d="M12 0C5.4 0 0 5.4 0 12c0 9 12 20 12 20s12-11 12-20c0-6.6-5.4-12-12-12z" fill="#8B7355"/>
+          <circle cx="12" cy="12" r="4" fill="white"/>
+        </svg>
+        <span>MAISON AURA</span>
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<div class="hours-section">
-  <h2 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 400; color: #181818; margin-bottom: 40px; margin-top: 80px;">営業時間</h2>
-  <table class="hours-table">
-    <thead>
-      <tr>
-        <th>曜日</th>
-        <th>営業時間</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td style="color: #181818;">月〜金</td>
-        <td style="color: #181818;">10:00〜20:00</td>
-      </tr>
-      <tr>
-        <td style="color: #181818;">土・日・祝</td>
-        <td style="color: #181818;">9:00〜19:00</td>
-      </tr>
-      <tr>
-        <td style="color: #181818;">定休日</td>
-        <td style="color: #181818;">毎週火曜日</td>
-      </tr>
-    </tbody>
-  </table>
-  <p style="font-size: 0.78rem; color: #4A4744; margin-top: 24px; line-height: 1.8;">
-    ※ 完全予約制です。<br>
-    ※ 当日予約は前日21時まで受付しております。
-  </p>
-</div>
-
-<div class="faq-section" style="margin-top: 80px;">
-  <h2 class="faq-section__title">よくあるご質問</h2>
-
-  <div class="faq-item">
-    <div class="faq-item__q">初めてでも大丈夫ですか？</div>
-    <div class="faq-item__a">はい、初めてのお客様も多くいらっしゃいます。カウンセリングを丁寧に行いますので、ご安心ください。</div>
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <p class="footer-logo">MAISON AURA</p>
+      <p class="footer-tagline">beauty salon — shibuya dogenzaka</p>
+    </div>
+    <nav class="footer-nav">
+      <ul>
+        <li><a href="../">Home</a></li>
+        <li><a href="../#concept">Concept</a></li>
+        <li><a href="../#services">Services</a></li>
+        <li><a href="../menu">Menu</a></li>
+        <li><a href="../access">Access</a></li>
+      </ul>
+    </nav>
+    <div class="footer-social">
+      <a href="#" class="social-link" aria-label="Instagram">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="LINE">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      </a>
+    </div>
   </div>
-
-  <div class="faq-item">
-    <div class="faq-item__q">予約はどうすればいいですか？</div>
-    <div class="faq-item__a">お電話（03-1234-5678）またはLINE公式アカウントからご予約いただけます。</div>
+  <div class="footer-bottom">
+    <p>© 2025 MAISON AURA. All rights reserved.</p>
+    <p>Powered by AI Implementation — Demo Site</p>
   </div>
-
-  <div class="faq-item">
-    <div class="faq-item__q">駐車場はありますか？</div>
-    <div class="faq-item__a">申し訳ございませんが、サロン専用の駐車場はございません。近隣のコインパーキングをご利用ください。</div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-item__q">キャンセルポリシーは？</div>
-    <div class="faq-item__a">前日21時まではキャンセル料なし。当日キャンセルはメニュー料金の50%をいただく場合がございます。</div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-item__q">子連れでも来店できますか？</div>
-    <div class="faq-item__a">申し訳ございませんが、施術の質確保のため、未就学児のお子様のご同伴はご遠慮いただいております。</div>
-  </div>
-</div>
-
-<footer>
-  <a href="../">← MAISON AURA サロントップへ</a>
-  <p class="footer-copy">© 2026 MAISON AURA. All rights reserved.</p>
 </footer>
+
+<script>
+  // Hamburger
+  const hamburger = document.getElementById('hamburger');
+  const nav = document.getElementById('nav');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    nav.classList.toggle('open');
+  });
+
+  // Header scroll
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const target = document.querySelector(anchor.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (nav.classList.contains('open')) {
+          hamburger.classList.remove('open');
+          nav.classList.remove('open');
+        }
+      }
+    });
+  });
+</script>
 
 </body>
 </html>

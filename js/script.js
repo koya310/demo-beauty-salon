@@ -1,68 +1,100 @@
-// ローダー
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    document.getElementById('loader').classList.add('hidden');
-  }, 800);
-});
+/* ============================================================
+   MAISON AURA — Main JavaScript v9 (Redesign)
+   ============================================================ */
 
-// スティッキーヘッダー
-const header = document.getElementById('header');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 80) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
+(function() {
+  'use strict';
+
+  /* ---- Header scroll behavior ---- */
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  /* ---- Hamburger ---- */
+  const hamburger = document.getElementById('hamburger');
+  const nav = document.getElementById('nav');
+  if (hamburger && nav) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      nav.classList.toggle('open');
+    });
   }
-});
 
-// スムーズスクロール
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    const id = this.getAttribute('href');
-    if (id === '#') { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
-    const target = document.querySelector(id);
-    if (target) {
-      const offset = header.offsetHeight + 20;
-      const top = target.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top, behavior: 'smooth' });
-      // モバイルメニューを閉じる
-      document.getElementById('nav').classList.remove('open');
-      document.getElementById('hamburger').classList.remove('open');
+  /* ---- Hero Parallax (rAF-based) ---- */
+  const heroImg = document.getElementById('heroImg');
+  if (heroImg) {
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          if (scrollY < window.innerHeight * 1.5) {
+            heroImg.style.transform = `translateY(${scrollY * 0.3}px) scale(1.08)`;
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+  /* ---- Lerp Parallax for Concept image ---- */
+  const conceptImgWrap = document.getElementById('conceptImgWrap');
+  const conceptImg = conceptImgWrap ? conceptImgWrap.querySelector('.concept-img') : null;
+
+  if (conceptImg) {
+    let lerpCurrent = 0;
+    let lerpTarget = 0;
+
+    function lerpParallax() {
+      const rect = conceptImgWrap.getBoundingClientRect();
+      const viewH = window.innerHeight;
+
+      // Only animate when section is in view
+      if (rect.bottom > 0 && rect.top < viewH) {
+        const progress = (viewH - rect.top) / (viewH + rect.height);
+        lerpTarget = (progress - 0.5) * 60; // ±30px range
+      }
+
+      lerpCurrent += (lerpTarget - lerpCurrent) * 0.08;
+      conceptImg.style.transform = `translateY(${lerpCurrent.toFixed(2)}px) scale(1.12)`;
+      requestAnimationFrame(lerpParallax);
     }
+    lerpParallax();
+  }
+
+  /* ---- Scroll Reveal (Intersection Observer) with clipPath ---- */
+  const revealEls = document.querySelectorAll('[data-reveal]');
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const delay = el.style.getPropertyValue('--delay') || '0s';
+        setTimeout(() => {
+          el.classList.add('revealed');
+        }, parseFloat(delay) * 1000);
+        revealObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  /* ---- Smooth scroll for anchors ---- */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const target = document.querySelector(anchor.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (nav && nav.classList.contains('open')) {
+          hamburger.classList.remove('open');
+          nav.classList.remove('open');
+        }
+      }
+    });
   });
-});
 
-// ハンバーガーメニュー
-const hamburger = document.getElementById('hamburger');
-const nav = document.getElementById('nav');
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('open');
-  nav.classList.toggle('open');
-});
-
-// スクロールアニメーション（Intersection Observer）
-const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, {
-  threshold: 0.12,
-  rootMargin: '0px 0px -50px 0px'
-});
-
-revealElements.forEach(el => observer.observe(el));
-
-// ページ内スクロール時の過去要素も表示
-window.addEventListener('load', () => {
-  revealElements.forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight) {
-      el.classList.add('visible');
-    }
-  });
-});
+})();

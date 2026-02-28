@@ -3,133 +3,298 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu | MAISON AURA</title>
-  <meta name="description" content="MAISON AURAのメニューと料金表。カット・カラー・パーマ・トリートメント。">
+  <title>Menu & Price | MAISON AURA | 渋谷の美容室</title>
+  <meta name="description" content="MAISON AURA のメニューと料金表。カット、カラー、パーマ、トリートメント、ヘッドスパ。">
+  <meta property="og:title" content="Menu & Price | MAISON AURA">
+  <meta property="og:description" content="渋谷・道玄坂の美容室 MAISON AURA の全メニューと料金">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Shippori+Mincho+B1:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Shippori+Mincho+B1:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
   <style>
-    .page-banner { width:100%; height:280px; overflow:hidden; }
-    .page-banner img { width:100%; height:100%; object-fit:cover; filter:saturate(0.85); }
-    .page-hero {
-      padding: clamp(120px, 15vh, 180px) clamp(24px, 6vw, 80px) clamp(60px, 8vh, 100px);
-      max-width: 1200px; margin: 0 auto;
+    .menu-hero {
+      min-height: 50vh;
+      background: var(--bg-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--gap-xl) var(--pad-x);
     }
-    .page-hero__sub { font-size: 0.75rem; letter-spacing: 0.25em; color: #C4897A; text-transform: uppercase; margin-bottom: 20px; }
-    .page-hero__title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 400; color: #181818; margin-bottom: 16px; }
-    .page-hero__desc { color: #666666; font-size: 0.9rem; line-height: 1.8; max-width: 480px; }
-    .menu-section { max-width: 1200px; margin: 0 auto; padding: 0 clamp(24px, 6vw, 80px) clamp(60px, 8vh, 100px); }
-    .menu-category { margin-bottom: 60px; }
-    .menu-category__title { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 400; color: #C4897A; margin-bottom: 32px; padding-bottom: 12px; border-bottom: 1px solid rgba(24,24,24,0.08); }
-    .menu-item { display: grid; grid-template-columns: 1fr auto; gap: 24px; padding: 20px 0; border-bottom: 1px solid rgba(24,24,24,0.06); }
-    .menu-item__name { font-size: 0.95rem; color: #181818; margin-bottom: 4px; }
-    .menu-item__desc { font-size: 0.78rem; color: #666666; line-height: 1.6; }
-    .menu-item__price { font-family: 'Playfair Display', serif; font-size: 1rem; color: #C4897A; white-space: nowrap; padding-top: 2px; }
-    .menu-note { font-size: 0.72rem; color: #4A4744; margin-top: 32px; line-height: 1.8; }
-    .back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; letter-spacing: 0.2em; color: #666666; text-transform: uppercase; text-decoration: none; margin-bottom: 48px; transition: color 0.3s; }
-    .back-link:hover { color: #C4897A; }
+
+    .menu-hero h1 {
+      font-family: var(--font-jp);
+      font-size: clamp(40px, 5vw, 80px);
+      font-weight: 300;
+      color: var(--text-light);
+      margin-bottom: 16px;
+      letter-spacing: 0.08em;
+    }
+
+    .menu-hero p {
+      font-family: var(--font-jp);
+      font-size: clamp(18px, 2.5vw, 24px);
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    .menu-section {
+      padding: var(--gap-2xl) var(--pad-x);
+      background: var(--bg);
+    }
+
+    .menu-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    .menu-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: var(--gap-xl);
+    }
+
+    .menu-table tr {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .menu-table tr:nth-child(even) {
+      background: var(--bg-alt);
+    }
+
+    .menu-table td {
+      padding: 24px;
+      font-size: 0.95rem;
+      font-family: var(--font-jp);
+    }
+
+    .menu-table td:first-child {
+      font-weight: 400;
+      color: var(--text);
+      width: 40%;
+    }
+
+    .menu-table td:nth-child(2) {
+      text-align: center;
+      color: var(--accent);
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-style: italic;
+      font-weight: 400;
+      width: 30%;
+    }
+
+    .menu-table td:nth-child(3) {
+      text-align: right;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      width: 30%;
+    }
+
+    .menu-cta {
+      text-align: center;
+      padding: var(--gap-xl) var(--pad-x);
+      background: var(--bg-darker);
+    }
+
+    .menu-cta a {
+      display: inline-block;
+      padding: 16px 40px;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      transition: background 0.3s;
+    }
+
+    .menu-cta a:hover {
+      background: var(--accent-dark);
+    }
+
+    .menu-note {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      margin-top: 24px;
+      letter-spacing: 0.05em;
+    }
+
     @media (max-width: 768px) {
-      .menu-item { grid-template-columns: 1fr; gap: 12px; }
+      .menu-table {
+        font-size: 0.85rem;
+      }
+
+      .menu-table td {
+        padding: 16px 12px;
+      }
+
+      .menu-table td:first-child {
+        width: 50%;
+      }
+
+      .menu-table td:nth-child(2) {
+        width: 25%;
+        font-size: 1rem;
+      }
+
+      .menu-table td:nth-child(3) {
+        width: 25%;
+        font-size: 0.75rem;
+      }
     }
   </style>
 </head>
-<body style="background:#FBFBF9; color:#181818; font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased;">
+<body>
 
+<!-- ヘッダー -->
 <header id="header">
   <div class="header-inner">
     <a href="../" class="logo">
       <span class="logo-main">MAISON AURA</span>
       <span class="logo-sub">beauty salon</span>
     </a>
-    <nav>
-      <ul style="display:flex;gap:32px;list-style:none;">
-        <li><a href="../#concept" style="color:#666666;text-decoration:none;font-size:0.78rem;letter-spacing:0.1em;transition:color 0.3s;" onmouseover="this.style.color='#181818'" onmouseout="this.style.color='#666666'">Concept</a></li>
-        <li><a href="../#services" style="color:#666666;text-decoration:none;font-size:0.78rem;letter-spacing:0.1em;transition:color 0.3s;" onmouseover="this.style.color='#181818'" onmouseout="this.style.color='#666666'">Services</a></li>
-        <li><a href="staff/" style="color:#666666;text-decoration:none;font-size:0.78rem;letter-spacing:0.1em;transition:color 0.3s;" onmouseover="this.style.color='#181818'" onmouseout="this.style.color='#666666'">Staff</a></li>
-        <li><a href="../#access" style="color:#666666;text-decoration:none;font-size:0.78rem;letter-spacing:0.1em;transition:color 0.3s;" onmouseover="this.style.color='#181818'" onmouseout="this.style.color='#666666'">Access</a></li>
+    <nav id="nav">
+      <ul>
+        <li><a href="../#concept">Concept</a></li>
+        <li><a href="../#services">Services</a></li>
+        <li><a href="../#gallery">Gallery</a></li>
+        <li><a href="../#team">Team</a></li>
+        <li><a href="../menu">Menu</a></li>
+        <li><a href="../access">Access</a></li>
       </ul>
     </nav>
     <a href="../#reservation" class="header-cta">予約する</a>
+    <button class="hamburger" id="hamburger" aria-label="メニュー">
+      <span></span><span></span>
+    </button>
   </div>
 </header>
 
-<div class="page-banner">
-  <img src="../images/salon_interior_menu.jpg" alt="MAISON AURA サロン内観">
-</div>
+<!-- Page Hero -->
+<section class="menu-hero">
+  <div>
+    <h1>Menu & Price</h1>
+    <p>メニュー・料金</p>
+  </div>
+</section>
 
-<div class="page-hero">
-  <a href="../" class="back-link">← サロントップへ</a>
-  <p class="page-hero__sub">Menu &amp; Price</p>
-  <h1 class="page-hero__title">メニュー・料金</h1>
-  <p class="page-hero__desc">すべてのメニューはカウンセリングを含みます。<br>お気軽にご相談ください。</p>
-</div>
+<!-- Menu Table -->
+<section class="menu-section">
+  <div class="menu-inner">
+    <table class="menu-table">
+      <thead style="display: none;">
+        <tr>
+          <th>Service</th>
+          <th>Price</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>カット（シャンプー・ブロー込み）</td>
+          <td>¥3,500〜</td>
+          <td>約40分</td>
+        </tr>
+        <tr>
+          <td>カラー（フルカラー）</td>
+          <td>¥5,000〜</td>
+          <td>約90分</td>
+        </tr>
+        <tr>
+          <td>カラー（ハイライト）</td>
+          <td>¥8,000〜</td>
+          <td>約120分</td>
+        </tr>
+        <tr>
+          <td>パーマ（デジタルパーマ）</td>
+          <td>¥10,000〜</td>
+          <td>約120分</td>
+        </tr>
+        <tr>
+          <td>トリートメント（単品）</td>
+          <td>¥2,000〜</td>
+          <td>約30分</td>
+        </tr>
+        <tr>
+          <td>ヘッドスパ（60分）</td>
+          <td>¥6,000〜</td>
+          <td>約60分</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="menu-note">※ 価格はすべて税込。詳細な料金表・セットメニューはお問い合わせください。</p>
+  </div>
+</section>
 
-<div class="menu-section">
-  <div class="menu-category">
-    <h2 class="menu-category__title">Cut</h2>
-    <div class="menu-item">
-      <div><p class="menu-item__name">カット</p><p class="menu-item__desc">カウンセリング込み。シャンプー・ブロー含む。</p></div>
-      <span class="menu-item__price">¥8,800〜</span>
+<!-- CTA -->
+<section class="menu-cta">
+  <a href="tel:03-0000-0000">お電話でご予約（03-0000-0000）</a>
+  <p class="menu-note" style="margin-top: 32px;">営業時間：10:00 — 19:00（最終受付 18:00）<br>定休日：毎週火曜日</p>
+</section>
+
+<!-- フッター -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <p class="footer-logo">MAISON AURA</p>
+      <p class="footer-tagline">beauty salon — shibuya dogenzaka</p>
     </div>
-    <div class="menu-item">
-      <div><p class="menu-item__name">カット + シャンプー&ブロー</p><p class="menu-item__desc">丁寧なシャンプーマッサージ付き。</p></div>
-      <span class="menu-item__price">¥10,000〜</span>
+    <nav class="footer-nav">
+      <ul>
+        <li><a href="../">Home</a></li>
+        <li><a href="../#concept">Concept</a></li>
+        <li><a href="../#services">Services</a></li>
+        <li><a href="../menu">Menu</a></li>
+        <li><a href="../access">Access</a></li>
+      </ul>
+    </nav>
+    <div class="footer-social">
+      <a href="#" class="social-link" aria-label="Instagram">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="LINE">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      </a>
     </div>
   </div>
-
-  <div class="menu-category">
-    <h2 class="menu-category__title">Color</h2>
-    <div class="menu-item">
-      <div><p class="menu-item__name">フルカラー</p><p class="menu-item__desc">根元から毛先まで均一に染める。</p></div>
-      <span class="menu-item__price">¥14,000〜</span>
-    </div>
-    <div class="menu-item">
-      <div><p class="menu-item__name">ハイライト</p><p class="menu-item__desc">透け感・奥行きを演出するフォイルワーク。</p></div>
-      <span class="menu-item__price">¥18,000〜</span>
-    </div>
-    <div class="menu-item">
-      <div><p class="menu-item__name">バレイヤージュ</p><p class="menu-item__desc">自然なグラデーションをハンドペイントで表現。</p></div>
-      <span class="menu-item__price">¥22,000〜</span>
-    </div>
-  </div>
-
-  <div class="menu-category">
-    <h2 class="menu-category__title">Perm</h2>
-    <div class="menu-item">
-      <div><p class="menu-item__name">デジタルパーマ</p><p class="menu-item__desc">形状記憶力の高いウェーブ。スタイリングが楽に。</p></div>
-      <span class="menu-item__price">¥20,000〜</span>
-    </div>
-    <div class="menu-item">
-      <div><p class="menu-item__name">ストレートパーマ</p><p class="menu-item__desc">くせ・うねりをやわらかく整える縮毛矯正。</p></div>
-      <span class="menu-item__price">¥22,000〜</span>
-    </div>
-  </div>
-
-  <div class="menu-category">
-    <h2 class="menu-category__title">Treatment</h2>
-    <div class="menu-item">
-      <div><p class="menu-item__name">ベーシックトリートメント</p><p class="menu-item__desc">日常的なダメージをリペア。</p></div>
-      <span class="menu-item__price">¥4,400〜</span>
-    </div>
-    <div class="menu-item">
-      <div><p class="menu-item__name">プレミアムトリートメント</p><p class="menu-item__desc">集中補修。つや・まとまりを最大化。</p></div>
-      <span class="menu-item__price">¥8,800〜</span>
-    </div>
-  </div>
-
-  <p class="menu-note">
-    ※ 料金はすべて税込表示です。<br>
-    ※ 料金はヘアの長さ・状態により変動する場合があります。カウンセリング時にご確認ください。<br>
-    ※ 初回ご来店の方は初回特典あり（10%割引）。
-  </p>
-</div>
-
-<footer style="padding:32px clamp(24px,6vw,80px);border-top:1px solid rgba(24,24,24,0.08);margin-top:60px;background:#FBFBF9;">
-  <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;">
-    <span style="font-size:0.8rem;color:#4A4744;">MAISON AURA beauty salon</span>
-    <p style="font-size:0.72rem;color:#4A4744;">© 2026 MAISON AURA. All rights reserved.</p>
+  <div class="footer-bottom">
+    <p>© 2025 MAISON AURA. All rights reserved.</p>
+    <p>Powered by AI Implementation — Demo Site</p>
   </div>
 </footer>
+
+<script>
+  // Hamburger
+  const hamburger = document.getElementById('hamburger');
+  const nav = document.getElementById('nav');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    nav.classList.toggle('open');
+  });
+
+  // Header scroll
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const target = document.querySelector(anchor.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (nav.classList.contains('open')) {
+          hamburger.classList.remove('open');
+          nav.classList.remove('open');
+        }
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
