@@ -64,6 +64,12 @@
     lerpParallax();
   }
 
+  /* ---- Hero Title Line Animation ---- */
+  document.querySelectorAll('.hero-line').forEach((line, i) => {
+    line.style.setProperty('--delay', `${0.2 + i * 0.18}s`);
+    setTimeout(() => { line.classList.add('revealed'); }, (0.2 + i * 0.18) * 1000);
+  });
+
   /* ---- Scroll Reveal (Intersection Observer) with clipPath ---- */
   const revealEls = document.querySelectorAll('[data-reveal]');
 

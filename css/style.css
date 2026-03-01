@@ -1604,6 +1604,162 @@ header.scrolled .hamburger span { background: var(--text); }
 }
 
 /* ============================================================
+   COMMISSION SECTION
+   ============================================================ */
+.commission {
+  background: var(--color-charcoal);
+  color: var(--color-warm-white);
+  padding: clamp(5rem, 10vw, 8rem) var(--spacing-xl);
+}
+
+.commission__inner {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.commission__label {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.commission__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.02em;
+}
+
+.commission__title em {
+  font-style: italic;
+  color: var(--color-gold);
+}
+
+.commission__body {
+  font-size: 0.9rem;
+  line-height: 1.9;
+  opacity: 0.75;
+  margin-bottom: 3rem;
+}
+
+.commission__form {
+  text-align: left;
+}
+
+.commission__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.commission__field {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.commission__input,
+.commission__textarea,
+.commission__select {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+  padding: 1.2rem 1rem 0.5rem;
+  color: var(--color-warm-white);
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: border-color 0.3s ease, background 0.3s ease;
+  box-sizing: border-box;
+  appearance: none;
+}
+
+.commission__select {
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.commission__textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.commission__input::placeholder,
+.commission__textarea::placeholder {
+  color: transparent;
+}
+
+.commission__label-float {
+  position: absolute;
+  left: 1rem;
+  top: 0.9rem;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.45);
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.commission__label-float span {
+  color: var(--color-gold);
+}
+
+.commission__input:focus,
+.commission__textarea:focus,
+.commission__select:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.commission__input:not(:placeholder-shown) + .commission__label-float,
+.commission__input:focus + .commission__label-float,
+.commission__textarea:not(:placeholder-shown) + .commission__label-float,
+.commission__textarea:focus + .commission__label-float {
+  top: 0.3rem;
+  font-size: 0.68rem;
+  color: var(--color-gold);
+}
+
+.commission__submit {
+  width: 100%;
+  padding: 1.1rem 2rem;
+  background: var(--color-gold);
+  color: var(--color-charcoal);
+  border: none;
+  border-radius: 2px;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.commission__submit:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+}
+
+.commission__note {
+  text-align: center;
+  font-size: 0.75rem;
+  opacity: 0.4;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .commission__row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
    REDUCED MOTION
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
