@@ -67,20 +67,33 @@
   /* ---- Scroll Reveal (Intersection Observer) with clipPath ---- */
   const revealEls = document.querySelectorAll('[data-reveal]');
 
+  function revealEl(el) {
+    if (el.classList.contains('revealed')) return;
+    const delay = el.style.getPropertyValue('--delay') || '0s';
+    setTimeout(() => { el.classList.add('revealed'); }, parseFloat(delay) * 1000);
+  }
+
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const el = entry.target;
-        const delay = el.style.getPropertyValue('--delay') || '0s';
-        setTimeout(() => {
-          el.classList.add('revealed');
-        }, parseFloat(delay) * 1000);
-        revealObserver.unobserve(el);
+        revealEl(entry.target);
+        revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 
   revealEls.forEach(el => revealObserver.observe(el));
+
+  // Fallback: immediately reveal elements already in viewport on load
+  // (belt-and-suspenders for IntersectionObserver timing with clip-path)
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      revealEls.forEach(el => {
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight - 30 && r.bottom > 0) revealEl(el);
+      });
+    });
+  });
 
   /* ---- Smooth scroll for anchors ---- */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
