@@ -86,14 +86,25 @@
 
   // Fallback: immediately reveal elements already in viewport on load
   // (belt-and-suspenders for IntersectionObserver timing with clip-path)
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      revealEls.forEach(el => {
+  function checkReveal() {
+    revealEls.forEach(el => {
+      if (!el.classList.contains('revealed')) {
         const r = el.getBoundingClientRect();
         if (r.top < window.innerHeight - 30 && r.bottom > 0) revealEl(el);
-      });
+      }
     });
-  });
+  }
+
+  requestAnimationFrame(() => { requestAnimationFrame(checkReveal); });
+
+  // Scroll fallback (covers IntersectionObserver edge cases across all environments)
+  let revealScrollTicking = false;
+  window.addEventListener('scroll', () => {
+    if (!revealScrollTicking) {
+      requestAnimationFrame(() => { checkReveal(); revealScrollTicking = false; });
+      revealScrollTicking = true;
+    }
+  }, { passive: true });
 
   /* ---- Smooth scroll for anchors ---- */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
