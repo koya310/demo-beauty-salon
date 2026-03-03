@@ -65,9 +65,10 @@
   }
 
   /* ---- Hero Title Line Animation ---- */
+  // CSS transition-delay でstagger制御。setTimeoutとの二重遅延を排除。
   document.querySelectorAll('.hero-line').forEach((line, i) => {
-    line.style.setProperty('--delay', `${0.2 + i * 0.18}s`);
-    setTimeout(() => { line.classList.add('revealed'); }, (0.2 + i * 0.18) * 1000);
+    line.style.setProperty('--delay', `${0.15 + i * 0.35}s`);
+    line.classList.add('revealed');
   });
 
   /* ---- Scroll Reveal (Intersection Observer) with clipPath ---- */
