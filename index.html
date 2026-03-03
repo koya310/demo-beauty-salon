@@ -459,7 +459,7 @@
     <p class="commission__label" data-reveal>— LP制作のご依頼</p>
     <h2 class="commission__title" data-reveal>このようなサイトを、<br><em>あなたのお店に。</em></h2>
     <p class="commission__body" data-reveal>AI × 高品質デザインで、業種に合わせたLPを短期間・低コストで制作します。<br>初回のご相談は無料です。お気軽にお問い合わせください。</p>
-    <form class="commission__form" action="https://formspree.io/f/XXXXXXXX" method="POST" data-reveal>
+    <form class="commission__form" id="commission-form" action="/api/contact" method="POST" data-reveal>
       <div class="commission__row">
         <div class="commission__field">
           <input type="text" name="name" id="c-name" placeholder=" " required class="commission__input">
@@ -484,7 +484,8 @@
         <textarea name="message" id="c-message" rows="4" placeholder=" " class="commission__textarea"></textarea>
         <label for="c-message" class="commission__label-float">ご要望・ご質問（任意）</label>
       </div>
-      <button type="submit" class="commission__submit">無料相談を申し込む →</button>
+      <button type="submit" class="commission__submit" id="commission-submit">無料相談を申し込む →</button>
+      <div id="commission-status" style="display:none;margin-top:16px;padding:12px 16px;border-radius:6px;font-size:14px"></div>
     </form>
     <p class="commission__note" data-reveal>※ 送信後、1〜2営業日以内にご連絡いたします。</p>
   </div>

@@ -127,4 +127,39 @@
     });
   });
 
+  /* ---- Commission form AJAX submission ---- */
+  const commissionForm = document.getElementById('commission-form');
+  const commissionStatus = document.getElementById('commission-status');
+  const commissionSubmit = document.getElementById('commission-submit');
+
+  if (commissionForm && commissionStatus) {
+    commissionForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      commissionSubmit.textContent = '送信中...';
+      commissionSubmit.disabled = true;
+
+      try {
+        const data = Object.fromEntries(new FormData(commissionForm));
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+
+        if (res.ok) {
+          commissionForm.style.display = 'none';
+          commissionStatus.style.cssText = 'display:block;background:#f0faf4;border:1px solid #a8d5b5;color:#1a6b35;padding:16px;border-radius:6px;font-size:14px';
+          commissionStatus.innerHTML = '<strong>ありがとうございます！</strong><br>お問い合わせを受け付けました。<br>通常48時間以内にご返信いたします。';
+        } else {
+          throw new Error('送信失敗');
+        }
+      } catch {
+        commissionSubmit.textContent = '無料相談を申し込む →';
+        commissionSubmit.disabled = false;
+        commissionStatus.style.cssText = 'display:block;background:#fff0f0;border:1px solid #f5c6c6;color:#c0392b;padding:16px;border-radius:6px;font-size:14px';
+        commissionStatus.textContent = '送信に失敗しました。直接メールでご連絡ください: support@irohani.tech';
+      }
+    });
+  }
+
 })();
